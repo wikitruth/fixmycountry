@@ -2,10 +2,10 @@
 
 exports.port = process.env.PORT || 3000;
 exports.mongodb = {
-  uri: process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost:27017/wikitruth'
+  uri: process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost:27017/fixmycountry'
 };
 exports.companyName = 'Acme, Inc.';
-exports.projectName = 'Wikitruth';
+exports.projectName = 'Fix My Country';
 exports.systemEmail = 'your@email.addy';
 exports.cryptoKey = 'abc123';
 exports.loginAttempts = {

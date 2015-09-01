@@ -1,41 +1,36 @@
-# wikitruth
+# fixthephilippines.org
 
-The project aims to make a better world by finding the truth in all aspect of knowledge and collect, present them in a way that is easy to search and understand by laypeople. It aims to do this by finding the truth using a genuine intent, sound judgement, critical thinking, a set of system mechanics that prevent chaotic discussions, and the collective effort of everyone wanting to find the truth.
+**Objectives**
+* Create a system to help citizens identify, raise and fix issues in their society and the government.
+* Isiwalat ang mga tiwaling opisyales ng pamahalaan at mga salot sa ating Lipunan.
+* What needs to change is not only the government and officials but the people as well.
 
-This is an open research and an attempt to collect all verifiable facts and open them to everyone to contribute, challenge and come up with all sorts of doubts they can think of. Eventually, we can come up with a "golden source" which is a collection of truth that survived all the arguments from anyone, hardened by the challenges and supported by all available evidences.
+**Sections**
+* Issues & Events (Latest / Trending, Top Issues / Anomalies)
+* People (Politicians, Celebrities, Religious Leaders, and other key people)
+* Groups (Government Agencies, NGOs/Non-Profit, Religions, News & TV, Businesses)
+* Projects
+* Actions (Good actions, Destructive actions/attitudes of the Filipinos, Good attitudes from other countries)
+* Vote Wisely (top candidates -- the good and the bad)
 
-This project does not intend to replace Wikipedia or other crowd-sourced encyclopedia or similar internet sites. It intends to provide a place for everyone who are looking for a specific truth out of the various information they see in the internet, from the news, from people around them, and from various sources.
-
-If someone wanted to find information about different topics or explore the vast information from the internet, there is Wikipedia and Google, but to see what is really the truth, then this is where they can go.
-
-**General Assumptions**
-* A lot of people are having difficulty to find true information and difficulty to determine which one to believe.
-* The world will be a better place if people will know the real truth, can easily find it, and distinguish from random claims and opinions.
-* There is lots of information in the world, truth and lies lying around and intertwined together. People cannot easily differentiate between truth and lie because information is highly unorganized and a lot is unverifiable especially in the internet.
-* If we can have a place where truth and lies are clearly organized, categories and distinctly separated, then people will easily see the truth and will know what is a lie.
-* If people knows the truth, there will be less disagreements, less conflicts, better governance and politics, better education system, only one religion, better environment, better relationship between humans, better health, more love and there will be peace.
-
-**General Characteristics of most Discussions and Internet Forums**
-* Mostly single-sided, controlled by users with admin privileges or by the majority
-* Citing unverified or unverifiable sources
-* Chaotic, unorganized or uncontrollable
-* Ends with disagreements and often offensive and discriminatory in nature
-* Cyclic, looping arguments, never-ending (check some Creationist vs Evolutionist discussions)
-* Vital points get buried in comments
-* Non-sense comments often prevail due to numbers
-* Truth is hard to find
-
-**Related Systems:**
-* Yahoo! Answers
-* Quora
-* Answers.com
-* GotQuestions.org
-* Wikipedia
-* Citizendium
-* Conservapedia.com
-* StackExchange
-* Debate.org
-* rationalwiki.org
+**Features**
+* Easily see major projects and issues in the country (government and private)
+* See project budget, officials, contract and timeline, progress/completion status with photo/video/testimonies from laypeople.
+* Let people easily upload their observations about projects, anomalous acts, etc and easily voice out their concerns, frustrations, unfair treatments, inefficiencies of the government
+* Let people give suggestions for improvements and let people vote for the best solution (like uservoice.com)
+* Prevent people from forgetting past issues and prevent government officials to sway their focus.
+* Highlight top reasons and raise awareness why the Philippines is not progressing and still miserable
+* Report unreported or unimplemented laws
+* Show government officials in all branches of government, their profiles, achievements, projects, budget, assets, lifestyle
+* Show government budget and expenditures, from national, provincial/city, district and local.
+* Connect to petition site.
+* For top issues, the site will generate open letter containing the top complaints and suggested solutions and will be sent to the government official, CC president.
+* A social page to connect the issues with the people and the official social accounts of the government and news agencies. It highlights the top complaints of the people and solutions.
+* Check a politician profile, their morale principle, history of accomplishments and anomalies so people won't forget especially during election.
+* Provide means for government officials to connect with people, discuss the issues and justify their actions.
+* Let people vote on an issue: “Me too”, “Fix this”
+* A timeline view for People, Project, Group, Event, etc
+* Issue > People involved (linked)
 
 
 ## Requirements
@@ -55,10 +50,10 @@ page](https://github.com/jedireza/drywall/wiki/Trouble-sending-email).
 
 ## Installation
 
-* Install nodejs
+Install nodejs
 
-* ```bash
-$ git clone git@github.com:dsalunga/wikitruth.git && cd ./wikitruth
+```bash
+$ git clone git@github.com:wikitruth/fixmycountry.git && cd ./fixmycountry
 $ npm install -g yo generator-kraken bower grunt-cli
 $ npm install
 ```
@@ -69,12 +64,10 @@ $ npm install
 ```bash
 $ npm start
 
-# > wikitruth@0.0.0 start .../wikitruth
+# > fixmycountry@0.0.0 start .../fixmycountry
 # > grunt
-
 # Running "copy:vendor" (copy) task
 # ...
-
 # Running "concurrent:dev" (concurrent) task
 # Running "watch" task
 # Running "nodemon:dev" (nodemon) task
@@ -95,3 +88,7 @@ Now just use the reset password feature to set a password.
  - Set a new password.
 
 Login. Customize. Enjoy.
+
+## Connect and discuss
+
+Feel free to send feedback to fixthephilippines@gmail.com or join the discussion on [Facebook](https://www.facebook.com/fixtheph/).

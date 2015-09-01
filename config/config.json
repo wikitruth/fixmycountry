@@ -1,6 +1,6 @@
 {
     "mongodb": {
-        "uri": "mongodb://localhost/wikitruth"
+        "uri": "mongodb://localhost/fixmycountry"
     },
 
     "express": {
