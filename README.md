@@ -4,6 +4,7 @@
 * Create a system to help citizens identify, raise and fix issues in their society and the government.
 * Isiwalat ang mga tiwaling opisyales ng pamahalaan at mga salot sa ating Lipunan.
 * What needs to change is not only the government and officials but the people as well.
+* Awareness is the first step for change
 
 **Sections**
 * Issues & Events (Latest / Trending, Top Issues / Anomalies)
