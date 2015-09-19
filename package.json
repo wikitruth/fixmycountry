@@ -1,8 +1,8 @@
 {
-  "name": "wikitruth",
+  "name": "fixmycountry",
   "version": "0.1.0",
-  "description": "Wikipedia and Quora-like system with a vetting mechanism to classify facts from opinions",
-  "author": "dsalunga",
+  "description": "A system to help citizens identify, raise and fix issues in their society and the government.",
+  "author": "Wikitruth Foundation",
   "main": "app.js",
   "scripts": {
     "test": "grunt test",

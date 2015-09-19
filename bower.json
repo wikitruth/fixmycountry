@@ -1,9 +1,9 @@
 {
-  "name": "wikitruth",
+  "name": "fixmycountry",
   "version": "0.0.1",
-  "homepage": "https://github.com/dsalunga/wikitruth",
+  "homepage": "http://github.com/wikitruth/fixmycountry",
   "authors": [
-    "Daniel Salunga <dsalunga@live.com>"
+    "Wikitruth Foundation"
   ],
   "main": "app.js",
   "license": "MIT",
