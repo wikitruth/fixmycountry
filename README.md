@@ -4,7 +4,7 @@
 * Create a system to help citizens identify, raise and fix issues in their society and the government.
 * Isiwalat ang mga tiwaling opisyales ng pamahalaan at mga salot sa ating Lipunan.
 * What needs to change is not only the government and officials but the people as well.
-* Awareness is the first step for change
+* Awareness is the first step to change
 
 **Sections**
 * Issues & Events (Latest / Trending, Top Issues / Anomalies)
@@ -13,25 +13,31 @@
 * Projects
 * Actions (Good actions, Destructive actions/attitudes of the Filipinos, Good attitudes from other countries)
 * Vote Wisely (top candidates -- the good and the bad)
+* The Philippine History
 
 **Features**
 * Easily see major projects and issues in the country (government and private)
-* See project budget, officials, contract and timeline, progress/completion status with photo/video/testimonies from laypeople.
+* See project budget, officials, contract and timeline, progress/completion status with photo/video/testimonies from the citizens.
 * Let people easily upload their observations about projects, anomalous acts, etc and easily voice out their concerns, frustrations, unfair treatments, inefficiencies of the government
 * Let people give suggestions for improvements and let people vote for the best solution (like uservoice.com)
 * Prevent people from forgetting past issues and prevent government officials to sway their focus.
 * Highlight top reasons and raise awareness why the Philippines is not progressing and still miserable
-* Report unreported or unimplemented laws
-* Show government officials in all branches of government, their profiles, achievements, projects, budget, assets, lifestyle
+* Report unreported or unimplemented laws (IRR 404 section)
 * Show government budget and expenditures, from national, provincial/city, district and local.
 * Connect to petition site.
 * For top issues, the site will generate open letter containing the top complaints and suggested solutions and will be sent to the government official, CC president.
-* A social page to connect the issues with the people and the official social accounts of the government and news agencies. It highlights the top complaints of the people and solutions.
-* Check a politician profile, their morale principle, history of accomplishments and anomalies so people won't forget especially during election.
+* A social page to connect the issues with the people and the official social accounts of the government and news agencies. It highlights the top complaints of the people and solutions (winners & losers). Publish regularly by weekly, monthly, yearly and all time.
+* Show the all the branches of government, their profiles, achievements, projects, budget, assets, lifestyle
+* Check a politician profile, their moral principle (moral and immoral acts), history of accomplishments and anomalies so people won't forget especially during election.
 * Provide means for government officials to connect with people, discuss the issues and justify their actions.
 * Let people vote on an issue: “Me too”, “Fix this”
 * A timeline view for People, Project, Group, Event, etc
 * Issue > People involved (linked)
+* Justice Unserved
+* See the best and the worst (people/politician/individual, government agency, district, municipal, city, public business, president - ranked by number and weight of achievements, mistakes and ill-acts)
+* A wikipedia of events
+* The system does not forget
+
 
 
 ## Requirements
