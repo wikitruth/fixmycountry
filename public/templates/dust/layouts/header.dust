@@ -18,7 +18,7 @@
         <div class="navbar-header">
             <a href="/" class="navbar-brand">
                 <img src="/img/logo-64x64.png" alt="Logo" class="navbar-logo">
-                    <span class="navbar-brand-label hidden-xs1">FixThePH</span></a>
+                    <span class="navbar-brand-label hidden-xs1">{projectName}</span></a>
             <button data-toggle="collapse" data-target=".my-navbar-collapse" class="navbar-toggle collapsed">
                 <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
         </div>
@@ -32,7 +32,28 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {#user.username}
-                    <li><a href="{user.defaultReturnUrl}"><i class="fa fa-user"></i> {user.username}</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {user.username} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Content</li>
+                            <li><a href="#/switch?content=1">{?showVerified}<i class="fa fa-circle"></i>{:else}<i class="fa fa-circle-o"></i>{/showVerified} Verified</a></li>
+                            <li><a href="#/switch?content=2">{^showVerified}<i class="fa fa-circle"></i>{:else}<i class="fa fa-circle-o"></i>{/showVerified} Latest</a></li>
+                            <li><a href="#/switch?content=3">{?showEverything}<i class="fa fa-circle"></i>{:else}<i class="fa fa-circle-o"></i>{/showEverything} Everything</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Role</li>
+                            <li><a href="#/switch?role=2">{?isContributor}<i class="fa fa-circle"></i>{:else}<i class="fa fa-circle-o"></i>{/isContributor} Contributor</a></li>
+                            <li><a href="#/switch?role=1">{^isContributor}<i class="fa fa-circle"></i>{:else}<i class="fa fa-circle-o"></i>{/isContributor} Reader</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Account</li>
+                            {?user.isAdmin}
+                                <li><a href="/admin">Admin Area</a></li>
+                            {/user.isAdmin}
+                            <li><a href="/account">My Account</a></li>
+                            <li><a href="/account/settings/">Settings</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/logout">Sign Out</a></li>
+                        </ul>
+                    </li>
                 {:else}
                     <li><a href="/login/"><i class="fa fa-user"></i> Login</a></li>
                     <li><a href="/signup/"><i class="fa fa-user"></i> Sign Up</a></li>

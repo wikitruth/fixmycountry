@@ -6,6 +6,7 @@ exports.mongodb = {
 };
 exports.companyName = 'Acme, Inc.';
 exports.projectName = 'Fix My Country';
+exports.titleSlogan = 'fixmycountry, help citizens identify, raise and fix issues in their society and the government';
 exports.systemEmail = 'your@email.addy';
 exports.cryptoKey = 'abc123';
 exports.loginAttempts = {

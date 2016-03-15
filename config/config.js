@@ -5,7 +5,8 @@ exports.mongodb = {
   uri: process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost:27017/fixmycountry'
 };
 exports.companyName = 'Wikitruth Foundation';
-exports.projectName = 'Fix My Country';
+exports.projectName = 'fixtheph';
+exports.titleSlogan = 'fixtheph, help citizens identify, raise and fix issues in their society and the government';
 exports.systemEmail = 'your@email.addy';
 exports.cryptoKey = 'abc123';
 exports.loginAttempts = {

@@ -21,11 +21,11 @@ exports = module.exports = function(app, mongoose) {
     search: [String]
   });
   userSchema.methods.canPlayRoleOf = function(role) {
-    if (role === "admin" && this.roles.admin) {
+    if (role === 'admin' && this.roles.admin) {
       return true;
     }
 
-    if (role === "account" && this.roles.account) {
+    if (role === 'account' && this.roles.account) {
       return true;
     }
 
@@ -42,6 +42,9 @@ exports = module.exports = function(app, mongoose) {
     }
 
     return returnUrl;
+  };
+  userSchema.methods.isAdmin = function() {
+    return this.canPlayRoleOf('admin');
   };
   userSchema.statics.encryptPassword = function(password, done) {
     var bcrypt = require('bcrypt');
@@ -61,7 +64,7 @@ exports = module.exports = function(app, mongoose) {
       done(err, res);
     });
   };
-  userSchema.plugin(require('./plugins/pagedFind'));
+  userSchema.plugin(require('../plugins/pagedFind'));
   userSchema.index({ username: 1 }, { unique: true });
   userSchema.index({ email: 1 }, { unique: true });
   userSchema.index({ timeCreated: 1 });

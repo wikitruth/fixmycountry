@@ -1,5 +1,14 @@
 'use strict';
 
+var utils = require('../../../../utils/utils'),
+    mongoose = require('mongoose'),
+    constants = require('../../../../models/constants'),
+    db = require('../../../../app').db.models;
+
 exports.init = function(req, res){
-  res.render('jade/about/index.jade');
+  var model = {};
+  db.Page.findOne({ id: 'about' }, function(err, result) {
+    model.page = result ? result : {};
+    res.render('jade/about/index.jade', model);
+  });
 };

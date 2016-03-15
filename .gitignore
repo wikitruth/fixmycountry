@@ -4,3 +4,5 @@ node_modules
 
 public/vendor
 .nodemonignore
+public/layouts/*.min.js
+public/layouts/*.min.js.map
