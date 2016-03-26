@@ -1,0 +1,10 @@
+{>"dust/layouts/master" /}
+
+{<title}
+    People - {titleSlogan}
+{/title}
+
+{<body}
+    <h1 class="page-header"><i class="fa fa-user"></i> People</h1>
+    {>"dust/help-us" /}
+{/body}

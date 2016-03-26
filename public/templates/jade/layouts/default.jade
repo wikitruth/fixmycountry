@@ -20,9 +20,18 @@ html
         div.navbar-collapse.my-navbar-collapse.collapse
           ul.nav.navbar-nav
             //li: a(href='/') Home
-            li: a(href='/projects/') Projects
-            li: a(href='/people/') People
-            li: a(href='/goverment/') Goverment
+            li: a(href='/people/')
+              i.fa.fa-user
+              |  People
+            li: a(href='/events/')
+              i.fa.fa-bolt
+              |  Events
+            li: a(href='/projects/')
+              i.fa.fa-truck
+              |  Projects
+            li: a(href='/government')
+              i.fa.fa-bank
+              |  Government
             //li: a(href='/about/') About
           ul.nav.navbar-nav.navbar-right
             if user && user.username

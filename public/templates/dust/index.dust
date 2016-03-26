@@ -32,20 +32,25 @@
 
     <!-- Example row of columns -->
     <div class="row">
-        <div class="col-lg-4">
-            <h2>Projects</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-primary" href="/projects" role="button">View details &raquo;</a></p>
+        <div class="col-lg-3">
+            <h2><i class="fa fa-user"></i> People</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper.</p>
+            <p><a class="btn btn-primary" href="/people" role="button">Explore &raquo;</a></p>
         </div>
-        <div class="col-lg-4">
-            <h2>People</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-primary" href="/people" role="button">View details &raquo;</a></p>
+        <div class="col-lg-3">
+            <h2><i class="fa fa-bolt"></i> Events</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper.</p>
+            <p><a class="btn btn-primary" href="/people" role="button">Explore &raquo;</a></p>
         </div>
-        <div class="col-lg-4">
-            <h2>Government</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-            <p><a class="btn btn-primary" href="/goverment" role="button">View details &raquo;</a></p>
+        <div class="col-lg-3">
+            <h2><i class="fa fa-truck"></i> Projects</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper.</p>
+            <p><a class="btn btn-primary" href="/projects" role="button">Explore &raquo;</a></p>
+        </div>
+        <div class="col-lg-3">
+            <h2><i class="fa fa-bank"></i> Government</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper.</p>
+            <p><a class="btn btn-primary" href="/goverment" role="button">Explore &raquo;</a></p>
         </div>
     </div>
 

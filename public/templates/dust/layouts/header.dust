@@ -8,9 +8,10 @@
             <li role="presentation" class="hidden-xs"><a href="#">About</a></li>
         </ul>
     </nav>
-    <h3 class="text-muted"><a href="/" title="Home"><span class="glyphicon glyphicon-leaf"
-                                                          aria-hidden="true"></span><span
-            class="hidden-xs"> wikitruth</span></a></h3>
+    <h3 class="text-muted"><a href="/" title="Home">
+        <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+        <span class="hidden-xs"> wikitruth</span></a>
+    </h3>
 </div>!}
 
 <div class="navbar navbar-default navbar-fixed-top">
@@ -25,9 +26,10 @@
         <div class="navbar-collapse my-navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <!--<li class="hidden-xs"><a href="/">Home</a></li>-->
-                <li><a href="/projects">Projects</a></li>
-                <li><a href="/people">People</a></li>
-                <li><a href="/goverment">Goverment</a></li>
+                <li><a href="/people"><i class="fa fa-user"></i> People</a></li>
+                <li><a href="/events"><i class="fa fa-bolt"></i> Events</a></li>
+                <li><a href="/projects"><i class="fa fa-truck"></i> Projects</a></li>
+                <li><a href="/government"><i class="fa fa-bank"></i> Government</a></li>
                 <!--<li class="hidden-xs"><a href="/about/">About</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
