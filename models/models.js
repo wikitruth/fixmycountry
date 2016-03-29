@@ -16,4 +16,7 @@ exports = module.exports = function(app, mongoose) {
 
   // core
   require('./schema/core/Page')(app, mongoose);
+
+  // Organization
+  require('./schema/organization/Organization')(app, mongoose);
 };

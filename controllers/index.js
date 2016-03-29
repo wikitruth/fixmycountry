@@ -18,8 +18,4 @@ module.exports = function (router) {
     router.get('/projects', function (req, res) {
         res.render('dust/projects/index', model);
     });
-
-    router.get('/government', function (req, res) {
-        res.render('dust/government/index', model);
-    });
 };

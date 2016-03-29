@@ -1,0 +1,57 @@
+{>"dust/layouts/master" /}
+
+{<title}
+    {?item}Edit{:else}New{/item} Entry - {titleSlogan}
+{/title}
+
+{<body}
+    <h2 class="page-header text-primary">
+        <span class="text-muted">
+            <a href="/organizations">Organizations</a>
+            &nbsp;/&nbsp;
+            {?parent}
+                {?parent.parentId}
+                    <a href="/organizations/entry?id={parent.parentId}">..</a>
+                    &nbsp;/&nbsp;
+                {/parent.parentId}
+                <a href="/organizations/entry?id={parent._id}">{parent.title}</a>
+                &nbsp;/&nbsp;
+            {/parent}
+            {?item}
+                <a href="/organizations/entry?id={item._id}">{item.title}</a>
+                &nbsp;/&nbsp;Edit
+            {:else}
+                New Entry
+            {/item}
+        </span>
+    </h2>
+    <form method="post">
+        <input type="hidden" name="_csrf" value="{_csrf}">
+        <div class="form-group">
+            <label for="inputName">Title</label>
+            <input type="text" name="title" id="inputName" value="{item.title}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="inputContent">Summary</label>
+            <textarea class="form-control" id="inputContent" name="content" rows="12">{item.content}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="inputReferences">References</label>
+            <textarea class="form-control" id="inputReferences" name="references" rows="3">{item.references}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="inputParent">Parent</label>
+            <input type="text" name="parent" id="inputParent" value="{?item}{item.parentId}{:else}{parent._id}{/item}" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+        {?item}
+            <a class="btn btn-default" href="/organizations/entry?id={item._id}" role="button">Cancel</a>
+        {:else}
+            {?parent}
+                <a class="btn btn-default" href="/organizations/entry?id={parent._id}" role="button">Cancel</a>
+            {:else}
+                <a class="btn btn-default" href="/organizations" role="button">Cancel</a>
+            {/parent}
+        {/item}
+    </form>
+{/body}

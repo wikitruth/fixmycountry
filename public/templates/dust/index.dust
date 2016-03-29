@@ -40,7 +40,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6">
             <h2><i class="fa fa-bolt"></i> Events</h2>
             <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper.</p>
-            <p><a class="btn btn-default btn-block" href="/people" role="button">Explore &raquo;</a></p>
+            <p><a class="btn btn-default btn-block" href="/events" role="button">Explore &raquo;</a></p>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
             <h2><i class="fa fa-truck"></i> Projects</h2>
@@ -48,9 +48,9 @@
             <p><a class="btn btn-default btn-block" href="/projects" role="button">Explore &raquo;</a></p>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
-            <h2><i class="fa fa-bank"></i> Government</h2>
+            <h2><i class="fa fa-bank"></i> Organizations</h2>
             <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper.</p>
-            <p><a class="btn btn-default btn-block" href="/government" role="button">Explore &raquo;</a></p>
+            <p><a class="btn btn-default btn-block" href="/organizations" role="button">Explore &raquo;</a></p>
         </div>
     </div>
 

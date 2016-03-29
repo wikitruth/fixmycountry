@@ -29,7 +29,7 @@
                 <li><a href="/people"><i class="fa fa-user"></i> People</a></li>
                 <li><a href="/events"><i class="fa fa-bolt"></i> Events</a></li>
                 <li><a href="/projects"><i class="fa fa-truck"></i> Projects</a></li>
-                <li><a href="/government"><i class="fa fa-bank"></i> Government</a></li>
+                <li><a href="/organizations"><i class="fa fa-bank"></i> Organizations</a></li>
                 <!--<li class="hidden-xs"><a href="/about/">About</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
