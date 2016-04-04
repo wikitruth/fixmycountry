@@ -9,11 +9,11 @@ var mongoose    = require('mongoose'),
     templates   = require('../../models/templates'),
     db          = require('../../app').db.models;
 
-function setItemModel(req, model, callback) {
+function setOrganizationModel(req, model, callback) {
     if(req.query.id) {
         db.Organization.findOne({_id: req.query.id}, function (err, result) {
             model.organization = result;
-            flowUtils.appendOwnerFlag(req, result, model);
+            flowUtils.appendOrganizationOwnerFlag(req, result, model);
             callback();
         });
     } else {
@@ -25,11 +25,11 @@ function createModel() {
     return {};
 }
 
-function setItemModels(req, model, callback) {
+function setOrganizationModels(req, model, callback) {
     if(req.query.id) {
         async.series({
             organization: function (callback) {
-                setItemModel(req, model, callback);
+                setOrganizationModel(req, model, callback);
             },
             parentOrganization: function (callback) {
                 if(model.organization && model.organization.parentId) {
@@ -57,7 +57,7 @@ module.exports = function (router) {
         var model = createModel();
         async.parallel({
             organization: function(callback){
-                setItemModels(req, model, callback);
+                setOrganizationModels(req, model, callback);
             },
             organizations: function(callback) {
                 var query = req.query.id ? { parentId: req.query.id } : { parentId: null};
@@ -79,7 +79,7 @@ module.exports = function (router) {
         var model = createModel();
         async.parallel({
             organization: function(callback){
-                setItemModels(req, model, callback);
+                setOrganizationModels(req, model, callback);
             },
             organizations: function(callback) {
                 // display top sub-organizations
