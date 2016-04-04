@@ -1,0 +1,40 @@
+{>"dust/layouts/master" /}
+
+{<title}
+    {?branch}Edit{:else}New{/branch} Branch - {titleSlogan}
+{/title}
+
+{<body}
+    <h2 class="page-header text-primary">
+        <span class="text-muted">
+            {>"dust/organizations/breadcrumb" /}
+            &nbsp;/&nbsp;
+            {?branch}
+                Edit
+            {:else}
+                New Branch
+            {/branch}
+        </span>
+    </h2>
+    <form method="post">
+        <input type="hidden" name="_csrf" value="{_csrf}">
+        <div class="form-group">
+            <label for="inputName">Branch</label>
+            <input type="text" name="title" id="inputName" value="{branch.title}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="inputContent">Summary</label>
+            <textarea class="form-control" id="inputContent" name="content" rows="12">{branch.content}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="inputReferences">References</label>
+            <textarea class="form-control" id="inputReferences" name="references" rows="2">{branch.references}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="inputParent">Parent</label>
+            <input type="text" name="parent" id="inputParent" value="{?branch}{branch.parentId}{:else}{parentBranch._id}{/branch}" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+        <a class="btn btn-default" href="{?branch}{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={branch._id}{:else}{paths.organizations.branch.index}?organization={organization._id}{/branch}" role="button">Cancel</a>
+    </form>
+{/body}

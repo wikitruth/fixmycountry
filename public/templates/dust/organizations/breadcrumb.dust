@@ -1,0 +1,23 @@
+<a href="{paths.organizations.index}">Organizations</a>
+{?parentOrganization}
+    {?parentOrganization.parentId}
+        &nbsp;/&nbsp;
+        <a href="{paths.organizations.entry}?id={parentOrganization.parentId}">..</a>
+    {/parentOrganization.parentId}
+    &nbsp;/&nbsp;
+    <a href="{paths.organizations.entry}?id={parentOrganization._id}">{parentOrganization.title}</a>
+{/parentOrganization}
+&nbsp;/&nbsp;
+<a href="{paths.organizations.entry}?id={organization._id}">{organization.title}</a>
+{?parentBranch}
+    {?parentBranch.parentId}
+        &nbsp;/&nbsp;
+        <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={parentBranch.parentId}">..</a>
+    {/parentBranch.parentId}
+    &nbsp;/&nbsp;
+    <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={parentBranch._id}">{parentBranch.title}</a>
+{/parentBranch}
+{?branch}
+    &nbsp;/&nbsp;
+    <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={branch._id}">{branch.title}</a>
+{/branch}

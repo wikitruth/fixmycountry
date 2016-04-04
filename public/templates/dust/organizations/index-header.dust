@@ -1,17 +1,17 @@
-<h1 class="page-header"><i class="fa fa-book"></i> Organizations</h1>
+<h1 class="page-header"><i class="fa fa-bank"></i> Organizations</h1>
 <div class="btn-group" role="group" aria-label="" style="margin-bottom: 10px">
-    <a class="btn btn-{@eq key=tab value="top-items"}primary{:else}default{/eq}" href="/organizations/">
-        <span class="glyphicon glyphicon-file" aria-hidden="true"></span> All Organizations<span class="hidden-xs hidden"> (122)</span>
+    <a class="btn btn-{@eq key=tab value="top-items"}primary{:else}default{/eq}" href="{paths.organizations.index}">
+        <i class="fa fa-bank"></i> Organizations<span class="hidden-xs hidden"> (122)</span>
     </a>
-    <a class="hidden-xs btn btn-{@eq key=tab value="top-questions"}primary{:else}default{/eq}" href="/organizations/questions">
+    {!<a class="hidden-xs btn btn-{@eq key=tab value="top-questions"}primary{:else}default{/eq}" href="/organizations/questions">
         <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Top Questions
-    </a>
+    </a>!}
+    {?isContributor}
     <a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
     </a>
-    {?isContributor}
     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-        <li><a href="/organizations/create">
+        <li><a href="{paths.organizations.create}">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> New Entry</a></li>
     </ul>
     {/isContributor}

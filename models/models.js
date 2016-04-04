@@ -19,4 +19,5 @@ exports = module.exports = function(app, mongoose) {
 
   // Organization
   require('./schema/organization/Organization')(app, mongoose);
+  require('./schema/organization/Branch')(app, mongoose);
 };

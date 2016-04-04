@@ -1,10 +1,10 @@
 {>"dust/layouts/master" /}
 
 {<title}
-    Related: {item.title} - {titleSlogan}
+    Related: {organization.title} - {titleSlogan}
 {/title}
 
 {<body}
-    {>"dust/organizations/item-header" tab="related" /}
+    {>"dust/organizations/entry-header" tab="related" /}
     {>"dust/help-us" /}
 {/body}

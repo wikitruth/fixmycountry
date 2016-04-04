@@ -1,57 +1,57 @@
 {>"dust/layouts/master" /}
 
 {<title}
-    {?item}Edit{:else}New{/item} Entry - {titleSlogan}
+    {?organization}Edit{:else}New{/organization} Entry - {titleSlogan}
 {/title}
 
 {<body}
     <h2 class="page-header text-primary">
         <span class="text-muted">
-            <a href="/organizations">Organizations</a>
+            <a href="{paths.organizations.index}">Organizations</a>
             &nbsp;/&nbsp;
-            {?parent}
-                {?parent.parentId}
-                    <a href="/organizations/entry?id={parent.parentId}">..</a>
+            {?parentOrganization}
+                {?parentOrganization.parentId}
+                    <a href="{paths.organizations.entry}?id={parentOrganization.parentId}">..</a>
                     &nbsp;/&nbsp;
-                {/parent.parentId}
-                <a href="/organizations/entry?id={parent._id}">{parent.title}</a>
+                {/parentOrganization.parentId}
+                <a href="{paths.organizations.entry}?id={parentOrganization._id}">{parentOrganization.title}</a>
                 &nbsp;/&nbsp;
-            {/parent}
-            {?item}
-                <a href="/organizations/entry?id={item._id}">{item.title}</a>
+            {/parentOrganization}
+            {?organization}
+                <a href="{paths.organizations.entry}?id={organization._id}">{organization.title}</a>
                 &nbsp;/&nbsp;Edit
             {:else}
                 New Entry
-            {/item}
+            {/organization}
         </span>
     </h2>
     <form method="post">
         <input type="hidden" name="_csrf" value="{_csrf}">
         <div class="form-group">
             <label for="inputName">Title</label>
-            <input type="text" name="title" id="inputName" value="{item.title}" class="form-control"/>
+            <input type="text" name="title" id="inputName" value="{organization.title}" class="form-control"/>
         </div>
         <div class="form-group">
             <label for="inputContent">Summary</label>
-            <textarea class="form-control" id="inputContent" name="content" rows="12">{item.content}</textarea>
+            <textarea class="form-control" id="inputContent" name="content" rows="12">{organization.content}</textarea>
         </div>
         <div class="form-group">
             <label for="inputReferences">References</label>
-            <textarea class="form-control" id="inputReferences" name="references" rows="3">{item.references}</textarea>
+            <textarea class="form-control" id="inputReferences" name="references" rows="3">{organization.references}</textarea>
         </div>
         <div class="form-group">
             <label for="inputParent">Parent</label>
-            <input type="text" name="parent" id="inputParent" value="{?item}{item.parentId}{:else}{parent._id}{/item}" class="form-control"/>
+            <input type="text" name="parent" id="inputParent" value="{?organization}{organization.parentId}{:else}{parentOrganization._id}{/organization}" class="form-control"/>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
-        {?item}
-            <a class="btn btn-default" href="/organizations/entry?id={item._id}" role="button">Cancel</a>
+        {?organization}
+            <a class="btn btn-default" href="{paths.organizations.entry}?id={organization._id}" role="button">Cancel</a>
         {:else}
-            {?parent}
-                <a class="btn btn-default" href="/organizations/entry?id={parent._id}" role="button">Cancel</a>
+            {?parentOrganization}
+                <a class="btn btn-default" href="{paths.organizations.entry}?id={parentOrganization._id}" role="button">Cancel</a>
             {:else}
-                <a class="btn btn-default" href="/organizations" role="button">Cancel</a>
-            {/parent}
-        {/item}
+                <a class="btn btn-default" href="{paths.organizations.index}" role="button">Cancel</a>
+            {/parentOrganization}
+        {/organization}
     </form>
 {/body}
