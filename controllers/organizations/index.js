@@ -9,46 +9,8 @@ var mongoose    = require('mongoose'),
     templates   = require('../../models/templates'),
     db          = require('../../app').db.models;
 
-function setOrganizationModel(req, model, callback) {
-    if(req.query.id) {
-        db.Organization.findOne({_id: req.query.id}, function (err, result) {
-            model.organization = result;
-            flowUtils.appendOrganizationOwnerFlag(req, result, model);
-            callback();
-        });
-    } else {
-        callback();
-    }
-}
-
 function createModel() {
     return {};
-}
-
-function setOrganizationModels(req, model, callback) {
-    if(req.query.id) {
-        async.series({
-            organization: function (callback) {
-                setOrganizationModel(req, model, callback);
-            },
-            parentOrganization: function (callback) {
-                if(model.organization && model.organization.parentId) {
-                    db.Organization.findOne({_id: model.organization.parentId}, function (err, result) {
-                        if (result) {
-                            model.parentOrganization = result;
-                        }
-                        callback();
-                    });
-                } else {
-                    callback();
-                }
-            }
-        }, function (err, results) {
-            callback();
-        });
-    } else {
-        callback();
-    }
 }
 
 module.exports = function (router) {
@@ -57,10 +19,10 @@ module.exports = function (router) {
         var model = createModel();
         async.parallel({
             organization: function(callback){
-                setOrganizationModels(req, model, callback);
+                flowUtils.setOrganizationModels(req, model, callback);
             },
             organizations: function(callback) {
-                var query = req.query.id ? { parentId: req.query.id } : { parentId: null};
+                var query = req.query.organization ? { parentId: req.query.organization } : { parentId: null};
                 db.Organization.find(query).limit(100).sort({ title: 1 }).exec(function(err, results) {
                     results.forEach(function(result) {
                         result.comments = utils.numberWithCommas(utils.randomInt(1,100000));
@@ -79,11 +41,11 @@ module.exports = function (router) {
         var model = createModel();
         async.parallel({
             organization: function(callback){
-                setOrganizationModels(req, model, callback);
+                flowUtils.setOrganizationModels(req, model, callback);
             },
             organizations: function(callback) {
                 // display top sub-organizations
-                db.Organization.find({ parentId: req.query.id }).limit(15).sort({ title: 1 }).exec(function(err, results) {
+                db.Organization.find({ parentId: req.query.organization }).limit(15).sort({ title: 1 }).exec(function(err, results) {
                     results.forEach(function(result) {
                         result.comments = utils.numberWithCommas(utils.randomInt(1,100000));
                     });
@@ -93,7 +55,7 @@ module.exports = function (router) {
             },
             branches: function(callback) {
                 // display top sub-branches
-                db.Branch.find({ organizationId: req.query.id }).limit(15).sort({ title: 1 }).exec(function(err, results) {
+                db.Branch.find({ organizationId: req.query.organization }).limit(15).sort({ title: 1 }).exec(function(err, results) {
                     results.forEach(function(result) {
                         result.comments = utils.numberWithCommas(utils.randomInt(1,100000));
                     });
@@ -110,8 +72,8 @@ module.exports = function (router) {
         var model = createModel();
         async.series({
             organization: function(callback){
-                if(req.query._id) {
-                    db.Organization.findOne({_id: req.query._id}, function (err, result) {
+                if(req.query.id) {
+                    db.Organization.findOne({_id: req.query.id}, function (err, result) {
                         model.organization = result;
                         callback();
                     });
@@ -121,7 +83,7 @@ module.exports = function (router) {
             },
             parentOrganization: function(callback) {
                 var query = {
-                    _id: req.query.id ? req.query.id : model.organization && model.organization.parentId ? model.organization.parentId : null
+                    _id: req.query.organization ? req.query.organization : model.organization && model.organization.parentId ? model.organization.parentId : null
                 };
                 if(query._id) {
                     db.Organization.findOne(query, function (err, result) {
@@ -139,7 +101,7 @@ module.exports = function (router) {
 
     router.post('/create', function (req, res) {
         var query = {
-            _id: req.query._id ? req.query._id : new mongoose.Types.ObjectId()
+            _id: req.query.id ? req.query.id : new mongoose.Types.ObjectId()
         };
         db.Organization.findOne(query, function(err, result) {
             var entity = result ? result : {};
@@ -157,9 +119,9 @@ module.exports = function (router) {
                     throw err;
                 }
                 if(result) {
-                    res.redirect(paths.organizations.entry + '?id=' + req.query._id);
-                } else if(req.query.id) {
-                    res.redirect(paths.organizations.index + '?id=' + req.query.id);
+                    res.redirect(paths.organizations.entry + '?organization=' + req.query.id);
+                } else if(req.query.organization) {
+                    res.redirect(paths.organizations.index + '?organization=' + req.query.organization);
                 } else {
                     res.redirect(paths.organizations.index);
                 }

@@ -3,13 +3,19 @@
 
 module.exports = {
     people: {
-        index: '/people'
+        index: '/people',
+        create: '/people/create',
+        entry: '/people/entry'
     },
-    events: {
-        index: '/events'
+    incidents: {
+        index: '/incidents',
+        create: '/incidents/create',
+        entry: '/incidents/entry'
     },
     projects: {
-        index: '/projects'
+        index: '/projects',
+        create: '/projects/create',
+        entry: '/projects/entry'
     },
     organizations: {
         index: '/organizations',

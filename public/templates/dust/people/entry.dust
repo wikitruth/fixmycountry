@@ -1,0 +1,16 @@
+{>"dust/layouts/master" /}
+
+{<title}
+    {person.title} - {titleSlogan}
+{/title}
+
+{<body}
+    {>"dust/people/index-header" tab="overview" /}
+    <div>
+        <p class="lead">
+            <a href="{paths.people.entry}?person={person._id}">{person.firstName} {person.lastName}</a></p>
+    </div>
+    <div id="lipsum">
+        <p>{person.content|s}</p>
+    </div>
+{/body}

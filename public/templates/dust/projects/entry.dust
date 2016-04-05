@@ -1,0 +1,16 @@
+{>"dust/layouts/master" /}
+
+{<title}
+    {project.title} - {titleSlogan}
+{/title}
+
+{<body}
+    {>"dust/projects/index-header" tab="overview" /}
+    <div>
+        <p class="lead">
+            <a href="{paths.projects.entry}?project={project._id}">{project.title}</a></p>
+    </div>
+    <div id="lipsum">
+        <p>{project.content|s}</p>
+    </div>
+{/body}

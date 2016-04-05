@@ -2,13 +2,15 @@
 {?parentOrganization}
     {?parentOrganization.parentId}
         &nbsp;/&nbsp;
-        <a href="{paths.organizations.entry}?id={parentOrganization.parentId}">..</a>
+        <a href="{paths.organizations.entry}?organization={parentOrganization.parentId}">..</a>
     {/parentOrganization.parentId}
     &nbsp;/&nbsp;
-    <a href="{paths.organizations.entry}?id={parentOrganization._id}">{parentOrganization.title}</a>
+    <a href="{paths.organizations.entry}?organization={parentOrganization._id}">{parentOrganization.title}</a>
 {/parentOrganization}
-&nbsp;/&nbsp;
-<a href="{paths.organizations.entry}?id={organization._id}">{organization.title}</a>
+{?organization}
+    &nbsp;/&nbsp;
+    <a href="{paths.organizations.entry}?organization={organization._id}">{organization.title}</a>
+{/organization}
 {?parentBranch}
     {?parentBranch.parentId}
         &nbsp;/&nbsp;

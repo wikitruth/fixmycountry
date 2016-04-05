@@ -2,9 +2,8 @@
 
 exports = module.exports = function(app, mongoose) {
   var schema = new mongoose.Schema({
-    content: { type: String, default: '' },
     title: { type: String, default: '' },
-    parentId: { type: mongoose.Schema.ObjectId, default: null },
+    content: { type: String, default: '' },
     createDate: { type: Date, default: Date.now },
     createUserId: { type: mongoose.Schema.ObjectId, ref: 'User' },
     editDate: { type: Date, default: Date.now },
@@ -13,5 +12,5 @@ exports = module.exports = function(app, mongoose) {
   schema.plugin(require('../plugins/pagedFind'));
   schema.index({ title: 1 });
   schema.set('autoIndex', (app.get('env') === 'development'));
-  app.db.model('Organization', schema);
+  app.db.model('Incident', schema);
 };

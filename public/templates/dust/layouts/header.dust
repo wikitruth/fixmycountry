@@ -27,7 +27,7 @@
             <ul class="nav navbar-nav">
                 <!--<li class="hidden-xs"><a href="/">Home</a></li>-->
                 <li><a href="{paths.people.index}"><i class="fa fa-user"></i> People</a></li>
-                <li><a href="{paths.events.index}"><i class="fa fa-bolt"></i> Events</a></li>
+                <li><a href="{paths.incidents.index}"><i class="fa fa-bolt"></i> Incidents</a></li>
                 <li><a href="{paths.projects.index}"><i class="fa fa-truck"></i> Projects</a></li>
                 <li><a href="{paths.organizations.index}"><i class="fa fa-bank"></i> Organizations</a></li>
                 <!--<li class="hidden-xs"><a href="/about/">About</a></li>-->

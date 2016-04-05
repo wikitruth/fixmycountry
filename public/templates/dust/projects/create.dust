@@ -1,0 +1,37 @@
+{>"dust/layouts/master" /}
+
+{<title}
+    {?project}Edit{:else}New{/project} Project - {titleSlogan}
+{/title}
+
+{<body}
+    <h2 class="page-header text-primary">
+        <span class="text-muted">
+            <a href="{paths.projects.index}">Projects</a>
+            &nbsp;/&nbsp;
+            {?project}
+                <a href="{paths.projects.entry}?project={project._id}">{project.title}</a>
+                &nbsp;/&nbsp;Edit
+            {:else}
+                New Project
+            {/project}
+        </span>
+    </h2>
+    <form method="post">
+        <input type="hidden" name="_csrf" value="{_csrf}">
+        <div class="form-group">
+            <label for="inputTitle">Title</label>
+            <input type="text" name="title" id="inputTitle" value="{project.title}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="inputContent">Summary</label>
+            <textarea class="form-control" id="inputContent" name="content" rows="12">{project.content}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+        {?project}
+            <a class="btn btn-default" href="{paths.projects.entry}?project={project._id}" role="button">Cancel</a>
+        {:else}
+            <a class="btn btn-default" href="{paths.projects.index}" role="button">Cancel</a>
+        {/project}
+    </form>
+{/body}

@@ -7,19 +7,10 @@
 {<body}
     <h2 class="page-header text-primary">
         <span class="text-muted">
-            <a href="{paths.organizations.index}">Organizations</a>
+            {>"dust/organizations/breadcrumb" /}
             &nbsp;/&nbsp;
-            {?parentOrganization}
-                {?parentOrganization.parentId}
-                    <a href="{paths.organizations.entry}?id={parentOrganization.parentId}">..</a>
-                    &nbsp;/&nbsp;
-                {/parentOrganization.parentId}
-                <a href="{paths.organizations.entry}?id={parentOrganization._id}">{parentOrganization.title}</a>
-                &nbsp;/&nbsp;
-            {/parentOrganization}
             {?organization}
-                <a href="{paths.organizations.entry}?id={organization._id}">{organization.title}</a>
-                &nbsp;/&nbsp;Edit
+                Edit
             {:else}
                 New Entry
             {/organization}
@@ -45,10 +36,10 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
         {?organization}
-            <a class="btn btn-default" href="{paths.organizations.entry}?id={organization._id}" role="button">Cancel</a>
+            <a class="btn btn-default" href="{paths.organizations.entry}?organization={organization._id}" role="button">Cancel</a>
         {:else}
             {?parentOrganization}
-                <a class="btn btn-default" href="{paths.organizations.entry}?id={parentOrganization._id}" role="button">Cancel</a>
+                <a class="btn btn-default" href="{paths.organizations.entry}?organization={parentOrganization._id}" role="button">Cancel</a>
             {:else}
                 <a class="btn btn-default" href="{paths.organizations.index}" role="button">Cancel</a>
             {/parentOrganization}

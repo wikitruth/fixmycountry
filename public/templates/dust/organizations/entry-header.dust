@@ -30,10 +30,10 @@
     {?isContributor}
         {^branch}
             {?isOrganizationOwner}
-                <li><a href="{paths.organizations.create}?_id={organization._id}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Organization</a></li>
+                <li><a href="{paths.organizations.create}?id={organization._id}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Organization</a></li>
             {!<li><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Child Entries</a></li>!}
             {/isOrganizationOwner}
-            <li><a href="{paths.organizations.create}{?organization}?id={organization._id}{/organization}">
+            <li><a href="{paths.organizations.create}{?organization}?organization={organization._id}{/organization}">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> New Organization</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{paths.organizations.branch.create}?organization={organization._id}">

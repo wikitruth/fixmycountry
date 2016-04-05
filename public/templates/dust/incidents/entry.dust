@@ -1,0 +1,16 @@
+{>"dust/layouts/master" /}
+
+{<title}
+    {incident.title} - {titleSlogan}
+{/title}
+
+{<body}
+    {>"dust/incidents/index-header" tab="overview" /}
+    <div>
+        <p class="lead">
+            <a href="{paths.incidents.entry}?incident={incident._id}">{incident.title}</a></p>
+    </div>
+    <div id="lipsum">
+        <p>{incident.content|s}</p>
+    </div>
+{/body}
