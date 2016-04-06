@@ -11,9 +11,9 @@
         {>"dust/organizations/index-header" tab="top-items" /}
     {/organization}
     <ul class="list-group">
-        <li class="list-group-item highlight"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> Organizations</li>
+        <li class="list-group-item highlight"><i class="fa fa-bank text-success"></i> Organizations</li>
         {#organizations}
-            <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> <a href="{paths.organizations.entry}?organization={_id}">{title}</a> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
+            <li class="list-group-item"><i class="fa fa-bank text-success"></i> <a href="{paths.organizations.entry}?organization={_id}">{title}</a> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
         {/organizations}
     </ul>
 {!<p><a class="btn btn-primary" href="/" role="button">View more &raquo;</a></p>!}

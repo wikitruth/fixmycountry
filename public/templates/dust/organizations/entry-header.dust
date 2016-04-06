@@ -5,17 +5,17 @@
 </h2>
 <div class="btn-group" role="group" aria-label="">
     {^branch}
-    <a class="btn btn-{@eq key=tab value="overview"}primary{:else}default{/eq}" href="{paths.organizations.entry}?id={organization._id}">
-        <span class="glyphicon glyphicon-file" aria-hidden="true"></span> Overview</a>
-    <a class="btn btn-{@eq key=tab value="items"}primary{:else}default{/eq}" href="{paths.organizations.index}?id={organization._id}">
+    <a class="btn btn-{@eq key=tab value="overview"}primary{:else}default{/eq}" href="{paths.organizations.entry}?organization={organization._id}">
+        <i class="fa fa-bank"></i> Overview</a>
+    <a class="btn btn-{@eq key=tab value="items"}primary{:else}default{/eq}" href="{paths.organizations.index}?organization={organization._id}">
         <i class="fa fa-bank"></i> Organizations</a>
         <a class="btn btn-{@eq key=tab value="branches"}primary{:else}default{/eq}" href="{paths.organizations.branch.index}?organization={organization._id}">
-            <i class="fa fa-bank"></i> Branches</a>
+            <i class="fa fa-users"></i> Branches</a>
     {:else}
         <a class="btn btn-{@eq key=tab value="overview"}primary{:else}default{/eq}" href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={branch._id}">
-            <span class="glyphicon glyphicon-file" aria-hidden="true"></span> Overview</a>
+            <i class="fa fa-users"></i> Overview</a>
         <a class="btn btn-{@eq key=tab value="branches"}primary{:else}default{/eq}" href="{paths.organizations.branch.index}?organization={organization._id}&amp;branch={branch._id}">
-            <i class="fa fa-bank"></i> Branches</a>
+            <i class="fa fa-users"></i> Branches</a>
     {/branch}
 
     {!<a class="btn btn-{@eq key=tab value="questions"}primary{:else}default{/eq}" href="/organizations/questions?id={item._id}">

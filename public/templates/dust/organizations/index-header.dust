@@ -1,7 +1,7 @@
 <h1 class="page-header"><i class="fa fa-bank"></i> Organizations</h1>
 <div class="btn-group" role="group" aria-label="" style="margin-bottom: 10px">
     <a class="btn btn-{@eq key=tab value="top-items"}primary{:else}default{/eq}" href="{paths.organizations.index}">
-        <i class="fa fa-bank"></i> Organizations<span class="hidden-xs hidden"> (122)</span>
+        <i class="fa fa-bank"></i> All Organizations<span class="hidden-xs hidden"> (122)</span>
     </a>
     {!<a class="hidden-xs btn btn-{@eq key=tab value="top-questions"}primary{:else}default{/eq}" href="/organizations/questions">
         <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Top Questions

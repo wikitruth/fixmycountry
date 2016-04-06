@@ -7,9 +7,9 @@
 {<body}
     {>"dust/people/index-header" tab="top-items" /}
     <ul class="list-group">
-        <li class="list-group-item highlight"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> People</li>
+        <li class="list-group-item highlight"><i class="fa fa-user text-success" aria-hidden="true"></i> People</li>
         {#persons}
-            <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> <a href="{paths.people.entry}?person={_id}">{firstName} {lastName}</a> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
+            <li class="list-group-item"><i class="fa fa-user text-success" aria-hidden="true"></i> <a href="{paths.people.entry}?person={_id}">{firstName} {lastName}</a> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
         {/persons}
     </ul>
 {/body}
