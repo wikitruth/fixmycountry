@@ -11,9 +11,9 @@
         {>"dust/organizations/index-header" tab="top-branches" /}
     {/organization}
     <ul class="list-group">
-        <li class="list-group-item highlight"><span class="glyphicon glyphicon-flash text-success" aria-hidden="true"></span> Branches</li>
+        <li class="list-group-item highlight"><i class="fa fa-users text-success" aria-hidden="true"></i> Branches</li>
         {#branches}
-            <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={_id}">{title}</a> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
+            <li class="list-group-item"><i class="fa fa-users text-success" aria-hidden="true"></i> <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={_id}">{title}</a> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
         {/branches}
         {!
         <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> Birds Prove Natural Selection is Naturally Wrong <span class="label label-danger">negative</span> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 10,456</span></li>
