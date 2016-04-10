@@ -6,7 +6,7 @@
     <!-- Jumbotron -->
     <div class="jumbotron">
         <h1>Let's fix the Philippines</h1>
-        <p class="lead">Help citizens identify, raise and fix issues in the Philippine society and government.</p>
+        <p class="lead">A system to promote transparency and accountability, help citizens identify, raise and fix issues in the Philippine society and government.</p>
     {#user.username}
         <p><a class="btn btn-lg btn-success" href="/about" role="button">Learn more &raquo;</a></p>
     {:else}
