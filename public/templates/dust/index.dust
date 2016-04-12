@@ -44,7 +44,7 @@
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
             <h2><i class="fa fa-truck"></i> Projects</h2>
-            <p>All major projects done by the government or private organizations as long as it impacts the people negatively or positively.</p>
+            <p>Major projects done by the government or private organizations as long as it impacts the people negatively or positively.</p>
             <p><a class="btn btn-default btn-block" href="{paths.projects.index}" role="button">Explore &raquo;</a></p>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
