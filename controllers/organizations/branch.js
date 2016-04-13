@@ -3,7 +3,6 @@
 var utils       = require('../../utils/utils'),
     flowUtils   = require('../../utils/flowUtils'),
     mongoose    = require('mongoose'),
-    constants   = require('../../models/constants'),
     async       = require('async'),
     paths       = require('../../models/paths'),
     templates   = require('../../models/templates'),

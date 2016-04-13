@@ -1,9 +1,7 @@
 'use strict';
 
-var utils       = require('../../utils/utils'),
-    flowUtils   = require('../../utils/flowUtils'),
+var flowUtils   = require('../../utils/flowUtils'),
     mongoose    = require('mongoose'),
-    constants   = require('../../models/constants'),
     async       = require('async'),
     db          = require('../../app').db.models;
 

@@ -1,8 +1,5 @@
 'use strict';
 
-var path = require('path');
-
-
 module.exports = function (grunt) {
 
     grunt.initConfig({
@@ -144,58 +141,6 @@ module.exports = function (grunt) {
             }]
           }
         },
-        jshint: {
-          client: {
-            options: {
-              jshintrc: '.jshintrc-client',
-              ignores: [
-                'public/layouts/**/*.min.js',
-                'public/views/**/*.min.js'
-              ]
-            },
-            src: [
-              'public/layouts/**/*.js',
-              'public/views/**/*.js'
-            ]
-          },
-          server: {
-            options: {
-              jshintrc: '.jshintrc-server'
-            },
-            src: [
-                '*.js',
-                'controllers/**/*.js',
-                'utils/**/*.js',
-                'middlewares/**/*.js',
-                'models/**/*.js',
-                'public/templates/jade/**/*.js'
-            ]
-          }
-        },
-        less: {
-          options: {
-            compress: true
-          },
-          layouts: {
-            files: {
-              'public/layouts/core.min.css': [
-                'public/less/bootstrap-build.less',
-                'public/less/font-awesome-build.less',
-                'public/layouts/core.less'
-              ],
-              'public/layouts/admin.min.css': ['public/layouts/admin.less']
-            }
-          },
-          views: {
-            files: [{
-              expand: true,
-              cwd: 'public/views/',
-              src: ['**/*.less'],
-              dest: 'public/views/',
-              ext: '.min.css'
-            }]
-          }
-        },
         clean: {
           js: {
             src: [
@@ -224,8 +169,6 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    //grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-concurrent');
@@ -233,11 +176,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-newer');
   
     grunt.registerTask('default', ['copy:vendor', 'newer:uglify', 'newer:less', 'concurrent']);
-    grunt.registerTask('build-jade', ['copy:vendor', 'uglify', 'less']);
+    grunt.registerTask('build-jade', ['copy:vendor', 'uglify', 'newer:less']);
     grunt.registerTask('lint', ['jshint']);
 
     // Register group tasks
-    grunt.registerTask('build-kraken', [ 'jshint', 'less', 'requirejs', 'i18n', 'copyto' ]);
+    grunt.registerTask('build-kraken', [ 'jshint', 'newer:less', 'requirejs', 'i18n', 'copyto' ]);
     grunt.registerTask('test', [ 'jshint', 'mochacli' ]);
 
     grunt.registerTask('build', [ 'build-jade', 'build-kraken' ]);
