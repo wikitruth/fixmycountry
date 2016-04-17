@@ -7,35 +7,38 @@ module.exports = function less(grunt) {
 
     // Options
     return {
+        options: {
+            cleancss: false,
+            compress: true
+        },
         build: {
-            options: {
-                cleancss: false,
-                compress: true
-            },
-            files: [
-                {
-                    expand: true,
-                    cwd: 'public/css',
-                    src: ['**/*.less'],
-                    dest: '.build/css/',
-                    ext: '.css'
-                },
-                {
-                    'public/layouts/core.min.css': [
-                        'public/less/bootstrap-build.less',
-                        'public/less/font-awesome-build.less',
-                        'public/layouts/core.less'
-                    ],
-                    'public/layouts/admin.min.css': ['public/layouts/admin.less']
-                },
-                {
-                    expand: true,
-                    cwd: 'public/views/',
-                    src: ['**/*.less'],
-                    dest: 'public/views/',
-                    ext: '.min.css'
-                }
-            ]
+            files: [{
+                expand: true,
+                cwd: 'public/css',
+                src: ['**/*.less'],
+                dest: '.build/css/',
+                ext: '.css'
+            }]
+        },
+        layouts: {
+            files: {
+                'public/layouts/core.min.css': [
+                    'public/less/bootstrap-build.less',
+                    'public/less/font-awesome-build.less',
+                    'public/layouts/core.less'
+                ],
+                'public/layouts/admin.min.css': ['public/layouts/admin.less']
+            }
+        },
+        views: {
+            files: [{
+                expand: true,
+                cwd: 'public/views/',
+                src: ['**/*.less'],
+                dest: 'public/views/',
+                ext: '.min.css'
+            }]
         }
+
     };
 };

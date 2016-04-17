@@ -6,9 +6,9 @@ exports.mongodb = {
 };
 exports.companyName = 'Wikitruth Foundation';
 exports.projectName = 'fixtheph';
-exports.titleSlogan = 'fixtheph, help citizens identify, raise and fix issues in their society and the government';
 exports.systemEmail = 'your@email.addy';
 exports.cryptoKey = 'abc123';
+exports.titleSlogan = 'Fix the Philippines, help citizens identify, raise and fix issues in their society and the government';
 exports.loginAttempts = {
   forIp: 50,
   forIpAndUser: 7,
