@@ -1,0 +1,23 @@
+{>"dust/layouts/master" /}
+
+{<title}
+    {?argument}Edit{:else}New{/argument} Issue - {titleSlogan}
+{/title}
+
+{<body}
+    <h2 class="page-header text-primary">
+        <span class="text-muted">
+            {>"dust/organizations/breadcrumb" /}
+            &nbsp;/&nbsp;
+            {?argument}
+                Edit
+            {:else}
+                New Issue
+            {/argument}
+        </span>
+    </h2>
+    <form method="post">
+        {>"dust/arguments/create" /}&nbsp;
+        <a class="btn btn-default" href="{?argument}{paths.organizations.arguments.entry}?organization={organization._id}&amp;argument={argument._id}{:else}{paths.organizations.arguments.index}?organization={organization._id}{/argument}" role="button">Cancel</a>
+    </form>
+{/body}

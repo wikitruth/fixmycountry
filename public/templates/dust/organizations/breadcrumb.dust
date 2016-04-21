@@ -22,4 +22,13 @@
 {?branch}
     &nbsp;/&nbsp;
     <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={branch._id}">{branch.title}</a>
+    {?argument}
+        &nbsp;/&nbsp;
+        <a href="{paths.organizations.branch.arguments.entry}?organization={organization._id}&amp;branch={branch._id}&amp;argument={argument._id}">{argument.title}</a>
+    {/argument}
+{:else}
+    {?argument}
+        &nbsp;/&nbsp;
+        <a href="{paths.organizations.arguments.entry}?organization={organization._id}&amp;argument={argument._id}">{argument.title}</a>
+    {/argument}
 {/branch}

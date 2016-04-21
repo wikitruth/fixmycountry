@@ -15,6 +15,8 @@ exports = module.exports = function(app, mongoose) {
   require('./schema/account/LoginAttempt')(app, mongoose);
 
   // core
+  require('./schema/core/Argument')(app, mongoose);
+
   require('./schema/core/Page')(app, mongoose);
   require('./schema/core/Person')(app, mongoose);
   require('./schema/core/Incident')(app, mongoose);

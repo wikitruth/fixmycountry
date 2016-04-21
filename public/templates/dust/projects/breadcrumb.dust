@@ -1,0 +1,9 @@
+<a href="{paths.projects.index}"><i class="fa fa-truck"></i> Projects</a>
+{?project}
+    &nbsp;/&nbsp;
+    <a href="{paths.projects.entry}?project={project._id}">{project.title}</a>
+{/project}
+{?argument}
+    &nbsp;/&nbsp;
+    <a href="{paths.projects.arguments.entry}?project={project._id}&amp;argument={argument._id}">{argument.title}</a>
+{/argument}

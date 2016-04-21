@@ -1,0 +1,9 @@
+<a href="{paths.people.index}"><i class="fa fa-user text-success" aria-hidden="true"></i> People</a>
+{?person}
+    &nbsp;/&nbsp;
+    <a href="{paths.people.entry}?person={person._id}">{person.firstName} {person.lastName}</a>
+{/person}
+{?argument}
+    &nbsp;/&nbsp;
+    <a href="{paths.people.arguments.entry}?person={person._id}&amp;argument={argument._id}">{argument.title}</a>
+{/argument}

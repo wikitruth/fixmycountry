@@ -2,18 +2,16 @@
 
 exports = module.exports = function(app, mongoose) {
   var schema = new mongoose.Schema({
-    title: { type: String, default: '' },
-    content: { type: String, default: '' },
-    references: { type: String, default: '' },
-    parentId: { type: mongoose.Schema.ObjectId, default: null },
-    organizationId: { type: mongoose.Schema.ObjectId, ref: 'Organization' },
+    leftId: { type: mongoose.Schema.ObjectId },
+    leftType: { type: Number },
+    rightId: { type: mongoose.Schema.ObjectId },
+    rightType: { type: Number },
     createDate: { type: Date, default: Date.now },
     createUserId: { type: mongoose.Schema.ObjectId, ref: 'User' },
     editDate: { type: Date, default: Date.now },
     editUserId: { type: mongoose.Schema.ObjectId, ref: 'User' }
   });
   schema.plugin(require('../plugins/pagedFind'));
-  schema.index({ title: 1 });
   schema.set('autoIndex', (app.get('env') === 'development'));
-  app.db.model('Branch', schema);
+  app.db.model('ObjectLink', schema);
 };

@@ -1,19 +1,40 @@
-<h1 class="page-header"><i class="fa fa-user"></i> People</h1>
+{?person}
+    <h2 class="page-header text-primary">
+        <span class="text-muted">
+            {>"dust/people/breadcrumb" /}
+        </span>
+    </h2>
+{:else}
+    <h1 class="page-header"><i class="fa fa-user"></i> People</h1>
+{/person}
 <div class="btn-group" role="group" aria-label="" style="margin-bottom: 10px">
     <a class="btn btn-{@eq key=tab value="top-items"}primary{:else}default{/eq}" href="{paths.people.index}">
         <i class="fa fa-user"></i> All People<span class="hidden-xs hidden"> (122)</span>
     </a>
+    {?person}
+        <a class="btn btn-{@eq key=tab value="arguments"}primary{:else}default{/eq}" href="{paths.people.arguments.index}?person={person._id}">
+            <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Issues</a>
+    {/person}
     {?isContributor}
-    <a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-        {?isPersonOwner}
-            <li><a href="{paths.people.create}?id={person._id}">
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Person</a></li>
-        {/isPersonOwner}
-        <li><a href="{paths.people.create}">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> New Person</a></li>
-    </ul>
+        <a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+            {?isPersonOwner}
+                <li><a href="{paths.people.create}?id={person._id}">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Person</a></li>
+            {/isPersonOwner}
+            <li><a href="{paths.people.create}">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> New Person</a></li>
+            {?person}
+                <li role="separator" class="divider"></li>
+                <li><a href="{paths.people.arguments.create}?person={person._id}"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> New Issue</a></li>
+                {?argument}
+                    {?isArgumentOwner}
+                        <li><a href="{paths.people.arguments.create}?person={person._id}&amp;argument={argument._id}"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Edit Issue</a></li>
+                    {/isArgumentOwner}
+                {/argument}
+            {/person}
+        </ul>
     {/isContributor}
 </div>

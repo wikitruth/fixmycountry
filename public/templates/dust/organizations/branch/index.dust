@@ -15,11 +15,5 @@
         {#branches}
             <li class="list-group-item"><i class="fa fa-users text-success" aria-hidden="true"></i> <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={_id}">{title}</a> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
         {/branches}
-        {!
-        <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> Birds Prove Natural Selection is Naturally Wrong <span class="label label-danger">negative</span> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 10,456</span></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> Lack of Life on Mars Proves Evolution is Wrong <span class="label label-danger">negative</span> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 56,012</span></li>
-        <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> Radio Silence from Space Proves Evolution is Wrong <span class="label label-danger">negative</span> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 343</span></li>
-        !}
     </ul>
-    {!<p><a class="btn btn-primary" href="/" role="button">View more &raquo;</a></p>!}
 {/body}

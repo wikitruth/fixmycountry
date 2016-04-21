@@ -1,0 +1,20 @@
+{>"dust/layouts/master" /}
+
+{<title}
+    {argument.title} - {titleSlogan}
+{/title}
+
+{<body}
+    {>"dust/organizations/entry-header" tab="overview" /}
+    {?argument}
+        <div style="margin-bottom: 10px">
+            <p class="lead" style="margin-bottom: 0">
+                <a href="{paths.organizations.branch.arguments.entry}?organization={organization._id}&amp;branch={branch._id}&amp;argument={argument._id}">{argument.title}</a>&nbsp;
+                <span style="color: #f0ad4e; font-size: 14px" title="Pending peer review and acceptance (verdict)"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span></p>
+        </div>
+    {:else}
+    {/argument}
+    <div id="lipsum">
+        <p>{argument.content|s}</p>
+    </div>
+{/body}

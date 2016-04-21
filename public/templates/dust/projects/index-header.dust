@@ -1,19 +1,40 @@
-<h1 class="page-header"><i class="fa fa-truck"></i> Projects</h1>
+{?project}
+    <h2 class="page-header text-primary">
+        <span class="text-muted">
+            {>"dust/projects/breadcrumb" /}
+        </span>
+    </h2>
+{:else}
+    <h1 class="page-header"><i class="fa fa-truck"></i> Projects</h1>
+{/project}
 <div class="btn-group" role="group" aria-label="" style="margin-bottom: 10px">
     <a class="btn btn-{@eq key=tab value="top-items"}primary{:else}default{/eq}" href="{paths.projects.index}">
         <i class="fa fa-truck"></i> All Projects<span class="hidden-xs hidden"> (122)</span>
     </a>
+    {?project}
+        <a class="btn btn-{@eq key=tab value="arguments"}primary{:else}default{/eq}" href="{paths.projects.arguments.index}?project={project._id}">
+            <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Issues</a>
+    {/project}
     {?isContributor}
-    <a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-        {?isProjectOwner}
-            <li><a href="{paths.projects.create}?id={project._id}">
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Project</a></li>
-        {/isProjectOwner}
-        <li><a href="{paths.projects.create}">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> New Project</a></li>
-    </ul>
+        <a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+            {?isProjectOwner}
+                <li><a href="{paths.projects.create}?id={project._id}">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Project</a></li>
+            {/isProjectOwner}
+            <li><a href="{paths.projects.create}">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> New Project</a></li>
+            {?project}
+                <li role="separator" class="divider"></li>
+                <li><a href="{paths.projects.arguments.create}?project={project._id}"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> New Issue</a></li>
+                {?argument}
+                    {?isArgumentOwner}
+                        <li><a href="{paths.projects.arguments.create}?project={project._id}&amp;argument={argument._id}"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Edit Issue</a></li>
+                    {/isArgumentOwner}
+                {/argument}
+            {/project}
+        </ul>
     {/isContributor}
 </div>

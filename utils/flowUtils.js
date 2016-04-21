@@ -98,6 +98,20 @@ function setOrganizationModels(req, model, callback) {
     }
 }
 
+function setArgumentModel(req, model, callback) {
+    if(req.query.argument) {
+        db.Argument.findOne({_id: req.query.argument}, function (err, result) {
+            model.argument = result;
+            if(isOwner(req, result, model)) {
+                model.isArgumentOwner = true;
+            }
+            callback();
+        });
+    } else {
+        callback();
+    }
+}
+
 function setBranchModels(req, model, callback) {
     if(req.query.branch) {
         async.series({
@@ -138,5 +152,6 @@ module.exports = {
     setProjectModel: setProjectModel,
     setOrganizationModel: setOrganizationModel,
     setOrganizationModels: setOrganizationModels,
-    setBranchModels: setBranchModels
+    setBranchModels: setBranchModels,
+    setArgumentModel: setArgumentModel
 };

@@ -4,19 +4,29 @@
     </span>
 </h2>
 <div class="btn-group" role="group" aria-label="">
-    {^branch}
-    <a class="btn btn-{@eq key=tab value="overview"}primary{:else}default{/eq}" href="{paths.organizations.entry}?organization={organization._id}">
-        <i class="fa fa-bank"></i> Overview</a>
-    <a class="btn btn-{@eq key=tab value="items"}primary{:else}default{/eq}" href="{paths.organizations.index}?organization={organization._id}">
-        <i class="fa fa-bank"></i> Organizations</a>
-        <a class="btn btn-{@eq key=tab value="branches"}primary{:else}default{/eq}" href="{paths.organizations.branch.index}?organization={organization._id}">
-            <i class="fa fa-users"></i> Branches</a>
+    {^argument}
+        {^branch}
+            <a class="btn btn-{@eq key=tab value="overview"}primary{:else}default{/eq}" href="{paths.organizations.entry}?organization={organization._id}">
+                <i class="fa fa-bank"></i> Overview</a>
+            <a class="btn btn-{@eq key=tab value="arguments"}primary{:else}default{/eq}" href="{paths.organizations.arguments.index}?organization={organization._id}">
+                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Issues</a>
+            <a class="btn btn-{@eq key=tab value="items"}primary{:else}default{/eq}" href="{paths.organizations.index}?organization={organization._id}">
+                <i class="fa fa-bank"></i> Organizations</a>
+            <a class="btn btn-{@eq key=tab value="branches"}primary{:else}default{/eq}" href="{paths.organizations.branch.index}?organization={organization._id}">
+                <i class="fa fa-users"></i> Branches</a>
+        {:else}
+            <a class="btn btn-{@eq key=tab value="overview"}primary{:else}default{/eq}" href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={branch._id}">
+                <i class="fa fa-users"></i> Overview</a>
+            <a class="btn btn-{@eq key=tab value="arguments"}primary{:else}default{/eq}" href="{paths.organizations.branch.arguments.index}?organization={organization._id}&amp;branch={branch._id}">
+                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Issues</a>
+            <a class="btn btn-{@eq key=tab value="branches"}primary{:else}default{/eq}" href="{paths.organizations.branch.index}?organization={organization._id}&amp;branch={branch._id}">
+                <i class="fa fa-users"></i> Branches</a>
+        {/branch}
     {:else}
-        <a class="btn btn-{@eq key=tab value="overview"}primary{:else}default{/eq}" href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={branch._id}">
-            <i class="fa fa-users"></i> Overview</a>
-        <a class="btn btn-{@eq key=tab value="branches"}primary{:else}default{/eq}" href="{paths.organizations.branch.index}?organization={organization._id}&amp;branch={branch._id}">
-            <i class="fa fa-users"></i> Branches</a>
-    {/branch}
+        <a class="btn btn-{@eq key=tab value="overview"}primary{:else}default{/eq}" href="{paths.organizations.arguments.entry}?organization={organization._id}&amp;argument={argument._id}">
+            <i class="fa fa-flash"></i> Overview</a>
+    {/argument}
+
 
     {!<a class="btn btn-{@eq key=tab value="questions"}primary{:else}default{/eq}" href="/organizations/questions?id={item._id}">
         <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Questions</a>
@@ -41,6 +51,13 @@
             {!<li><a href="#/organizations/question/create?id={item._id}">
                 <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> New Question</a></li>
             <li role="separator" class="divider"></li>!}
+            <li role="separator" class="divider"></li>
+            <li><a href="{paths.organizations.arguments.create}?organization={organization._id}"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> New Issue</a></li>
+            {?argument}
+                {?isArgumentOwner}
+                    <li><a href="{paths.organizations.arguments.create}?organization={organization._id}&amp;argument={argument._id}"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Edit Issue</a></li>
+                {/isArgumentOwner}
+            {/argument}
         {:else}
             {?isBranchOwner}
                 <li><a href="{paths.organizations.branch.create}?organization={organization._id}&amp;id={branch._id}">
@@ -50,6 +67,13 @@
                 {!<li><a href="/wiki/outline/link?topic={topic._id}&amp;argument={argument._id}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Manage Links</a></li>
                 <li role="separator" class="divider"></li>!}
             {/isBranchOwner}
+            <li role="separator" class="divider"></li>
+            <li><a href="{paths.organizations.branch.arguments.create}?organization={organization._id}&amp;branch={branch._id}"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> New Issue</a></li>
+            {?argument}
+                {?isArgumentOwner}
+                    <li><a href="{paths.organizations.branch.arguments.create}?organization={organization._id}&amp;branch={branch._id}&amp;argument={argument._id}"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Edit Issue</a></li>
+                {/isArgumentOwner}
+            {/argument}
         {/branch}
         {!<li><a href="/wiki/question/create?topic={topic._id}{?argument}&amp;argument={argument._id}{/argument}">
             <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> New Question</a></li>
@@ -63,10 +87,3 @@
     </ul>
 </div>
 <br/><br/>
-{?branch}
-    <div style="margin-bottom: 10px">
-        <p class="lead" style="margin-bottom: 0">
-            <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={branch._id}">{branch.title}</a> <span style="color: #f0ad4e; font-size: 14px" title="Pending peer review and acceptance (verdict)"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span></p>
-    </div>
-{:else}
-{/branch}

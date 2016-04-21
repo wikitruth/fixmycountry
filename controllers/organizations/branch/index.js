@@ -1,12 +1,12 @@
 'use strict';
 
-var utils       = require('../../utils/utils'),
-    flowUtils   = require('../../utils/flowUtils'),
-    mongoose    = require('mongoose'),
+var mongoose    = require('mongoose'),
     async       = require('async'),
-    paths       = require('../../models/paths'),
-    templates   = require('../../models/templates'),
-    db          = require('../../app').db.models;
+    utils       = require('../../../utils/utils'),
+    flowUtils   = require('../../../utils/flowUtils'),
+    paths       = require('../../../models/paths'),
+    templates   = require('../../../models/templates'),
+    db          = require('../../../app').db.models;
 
 function createModel() {
     return {};

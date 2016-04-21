@@ -6,6 +6,13 @@
 
 {<body}
     {>"dust/organizations/entry-header" tab="overview" /}
+    {?branch}
+        <div style="margin-bottom: 10px">
+            <p class="lead" style="margin-bottom: 0">
+                <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={branch._id}">{branch.title}</a> <span style="color: #f0ad4e; font-size: 14px" title="Pending peer review and acceptance (verdict)"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span></p>
+        </div>
+    {:else}
+    {/branch}
     <div id="lipsum">
         <p>{branch.content|s}</p>
         {!<p>

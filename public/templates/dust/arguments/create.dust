@@ -1,0 +1,14 @@
+<input type="hidden" name="_csrf" value="{_csrf}">
+<div class="form-group">
+    <label for="inputName">Issue</label>
+    <input type="text" name="title" id="inputName" value="{argument.title}" class="form-control"/>
+</div>
+<div class="form-group">
+    <label for="inputContent">Summary</label>
+    <textarea class="form-control" id="inputContent" name="content" rows="12">{argument.content}</textarea>
+</div>
+<div class="form-group">
+    <label for="inputReferences">References</label>
+    <textarea class="form-control" id="inputReferences" name="references" rows="2">{argument.references}</textarea>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>

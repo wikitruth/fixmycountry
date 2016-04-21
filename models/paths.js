@@ -5,17 +5,32 @@ module.exports = {
     people: {
         index: '/people',
         create: '/people/create',
-        entry: '/people/entry'
+        entry: '/people/entry',
+        arguments: {
+            index: '/people/arguments',
+            entry: '/people/arguments/entry',
+            create: '/people/arguments/create'
+        }
     },
     incidents: {
         index: '/incidents',
         create: '/incidents/create',
-        entry: '/incidents/entry'
+        entry: '/incidents/entry',
+        arguments: {
+            index: '/incidents/arguments',
+            entry: '/incidents/arguments/entry',
+            create: '/incidents/arguments/create'
+        }
     },
     projects: {
         index: '/projects',
         create: '/projects/create',
-        entry: '/projects/entry'
+        entry: '/projects/entry',
+        arguments: {
+            index: '/projects/arguments',
+            entry: '/projects/arguments/entry',
+            create: '/projects/arguments/create'
+        }
     },
     organizations: {
         index: '/organizations',
@@ -24,7 +39,17 @@ module.exports = {
         branch: {
             index: '/organizations/branch',
             create: '/organizations/branch/create',
-            entry: '/organizations/branch/entry'
+            entry: '/organizations/branch/entry',
+            arguments: {
+                index: '/organizations/branch/arguments',
+                entry: '/organizations/branch/arguments/entry',
+                create: '/organizations/branch/arguments/create'
+            }
+        },
+        arguments: {
+            index: '/organizations/arguments',
+            entry: '/organizations/arguments/entry',
+            create: '/organizations/arguments/create'
         }
     }
 };

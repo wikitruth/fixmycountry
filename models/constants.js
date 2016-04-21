@@ -1,11 +1,20 @@
 'use strict';
 
 module.exports = {
-    MODEL_TYPES: {
-        organization: 1,
-        branch: 2,
-        person: 3,
-        incident: 4,
-        project: 5
+    OBJECT_TYPES: {
+        topic: 1,
+        argument: 2,
+        question: 3,
+        comment: 4,
+        definition: 5,
+
+        organization: 101,
+        branch: 102,
+        person: 103,
+        incident: 104,
+        project: 105
+    },
+    OCCUPATION_TYPES: {
+
     }
 };

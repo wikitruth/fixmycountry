@@ -1,0 +1,9 @@
+<a href="{paths.incidents.index}"><i class="fa fa-bolt text-success" aria-hidden="true"></i> Incidents</a>
+{?incident}
+    &nbsp;/&nbsp;
+    <a href="{paths.incidents.entry}?incident={incident._id}">{incident.title}</a>
+{/incident}
+{?argument}
+    &nbsp;/&nbsp;
+    <a href="{paths.incidents.arguments.entry}?incident={incident._id}&amp;argument={argument._id}">{argument.title}</a>
+{/argument}

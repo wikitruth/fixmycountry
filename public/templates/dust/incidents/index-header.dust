@@ -1,19 +1,40 @@
-<h1 class="page-header"><i class="fa fa-bolt"></i> Incidents</h1>
+{?incident}
+    <h2 class="page-header text-primary">
+        <span class="text-muted">
+            {>"dust/incidents/breadcrumb" /}
+        </span>
+    </h2>
+{:else}
+    <h1 class="page-header"><i class="fa fa-bolt"></i> Incidents</h1>
+{/incident}
 <div class="btn-group" role="group" aria-label="" style="margin-bottom: 10px">
     <a class="btn btn-{@eq key=tab value="top-items"}primary{:else}default{/eq}" href="{paths.incidents.index}">
         <i class="fa fa-bolt"></i> All Incidents<span class="hidden-xs hidden"> (122)</span>
     </a>
+    {?incident}
+        <a class="btn btn-{@eq key=tab value="arguments"}primary{:else}default{/eq}" href="{paths.incidents.arguments.index}?incident={incident._id}">
+            <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Issues</a>
+    {/incident}
     {?isContributor}
-    <a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-        {?isIncidentOwner}
-            <li><a href="{paths.incidents.create}?id={incident._id}">
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Incident</a></li>
-        {/isIncidentOwner}
-        <li><a href="{paths.incidents.create}">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> New Incident</a></li>
-    </ul>
+        <a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+            {?isIncidentOwner}
+                <li><a href="{paths.incidents.create}?id={incident._id}">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Incident</a></li>
+            {/isIncidentOwner}
+            <li><a href="{paths.incidents.create}">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> New Incident</a></li>
+            {?incident}
+                <li role="separator" class="divider"></li>
+                <li><a href="{paths.incidents.arguments.create}?incident={incident._id}"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> New Issue</a></li>
+                {?argument}
+                    {?isArgumentOwner}
+                        <li><a href="{paths.incidents.arguments.create}?incident={incident._id}&amp;argument={argument._id}"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Edit Issue</a></li>
+                    {/isArgumentOwner}
+                {/argument}
+            {/incident}
+        </ul>
     {/isContributor}
 </div>
