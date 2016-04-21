@@ -15,27 +15,27 @@ module.exports = function (router) {
 
     router.get('/', function (req, res) {
         var model = createModel();
-        db.Incident.find({}).limit(100).sort({ title: 1 }).exec(function(err, results) {
+        db.Project.find({}).limit(100).sort({ title: 1 }).exec(function(err, results) {
             results.forEach(function(result) {
                 result.comments = utils.numberWithCommas(utils.randomInt(1,100000));
             });
-            model.incidents = results;
-            res.render(templates.incidents.index, model);
+            model.projects = results;
+            res.render(templates.projects.index, model);
         });
     });
 
     // item details
     router.get('/entry', function (req, res) {
         var model = createModel();
-        flowUtils.setIncidentModel(req, model, function (err) {
-            res.render(templates.incidents.entry, model);
+        flowUtils.setProjectModel(req, model, function (err) {
+            res.render(templates.projects.entry, model);
         });
     });
 
     router.get('/create', function (req, res) {
         var model = createModel();
-        flowUtils.setIncidentModel({query:{incident:req.query.id}}, model, function (err) {
-            res.render(templates.incidents.create, model);
+        flowUtils.setProjectModel({query:{project:req.query.id}}, model, function (err) {
+            res.render(templates.projects.create, model);
         });
     });
 
@@ -43,26 +43,27 @@ module.exports = function (router) {
         var query = {
             _id: req.query.id ? req.query.id : new mongoose.Types.ObjectId()
         };
-        db.Incident.findOne(query, function(err, result) {
+        db.Project.findOne(query, function(err, result) {
             var entity = result ? result : {};
             entity.title = req.body.title;
             entity.content = req.body.content;
+            entity.references = req.body.references;
             entity.editUserId = req.user.id;
             entity.editDate = Date.now();
             if(!result) {
                 entity.createUserId = req.user.id;
                 entity.createDate = Date.now();
             }
-            db.Incident.update(query, entity, {upsert: true}, function(err, writeResult) {
+            db.Project.update(query, entity, {upsert: true}, function(err, writeResult) {
                 if (err) {
                     throw err;
                 }
                 if(result) {
-                    res.redirect(paths.incidents.entry + '?incident=' + req.query.id);
-                } else if(req.query.incident) {
-                    res.redirect(paths.incidents.index + '?incident=' + req.query.incident);
+                    res.redirect(paths.projects.entry + '?project=' + req.query.id);
+                } else if(req.query.project) {
+                    res.redirect(paths.projects.index + '?project=' + req.query.project);
                 } else {
-                    res.redirect(paths.incidents.index);
+                    res.redirect(paths.projects.index);
                 }
             });
         });

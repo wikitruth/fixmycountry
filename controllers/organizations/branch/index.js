@@ -100,6 +100,7 @@ module.exports = function (router) {
             var entity = result ? result : {};
             entity.content = req.body.content;
             entity.title = req.body.title;
+            entity.references = req.body.references;
             entity.editUserId = req.user.id;
             entity.editDate = Date.now();
             entity.parentId = req.body.parent ? req.body.parent : null;
