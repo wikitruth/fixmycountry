@@ -2,7 +2,6 @@
 .idea
 node_modules
 
-public/vendor
 .nodemonignore
 public/layouts/*.min.css
 public/layouts/*.min.js
