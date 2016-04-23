@@ -34,6 +34,10 @@
             <label for="inputParent">Parent</label>
             <input type="text" name="parent" id="inputParent" value="{?organization}{organization.parentId}{:else}{parentOrganization._id}{/organization}" class="form-control"/>
         </div>
+        <div class="form-group">
+            <label for="inputReferences">References</label>
+            <textarea class="form-control" id="inputReferences" name="references" rows="2">{organization.references}</textarea>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
         {?organization}
             <a class="btn btn-default" href="{paths.organizations.entry}?organization={organization._id}" role="button">Cancel</a>

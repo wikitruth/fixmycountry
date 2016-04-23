@@ -10,7 +10,14 @@
         <p class="lead">
             <a href="{paths.projects.entry}?project={project._id}">{project.title}</a></p>
     </div>
-    <div id="lipsum">
+    <div>
         <p>{project.content|s}</p>
+        {?project.references}
+            <br/>
+            <small class="text-muted">
+                <span class="text-uppercase">References</span>
+                <p>{project.references|s}</p>
+            </small>
+        {/project.references}
     </div>
 {/body}

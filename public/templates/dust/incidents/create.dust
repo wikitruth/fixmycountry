@@ -27,6 +27,10 @@
             <label for="inputContent">Summary</label>
             <textarea class="form-control" id="inputContent" name="content" rows="12">{incident.content}</textarea>
         </div>
+        <div class="form-group">
+            <label for="inputReferences">References</label>
+            <textarea class="form-control" id="inputReferences" name="references" rows="2">{incident.references}</textarea>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
         {?incident}
             <a class="btn btn-default" href="{paths.incidents.entry}?incident={incident._id}" role="button">Cancel</a>

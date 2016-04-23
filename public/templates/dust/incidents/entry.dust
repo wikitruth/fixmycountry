@@ -10,7 +10,14 @@
         <p class="lead">
             <a href="{paths.incidents.entry}?incident={incident._id}">{incident.title}</a></p>
     </div>
-    <div id="lipsum">
+    <div>
         <p>{incident.content|s}</p>
+        {?incident.references}
+            <br/>
+            <small class="text-muted">
+                <span class="text-uppercase">References</span>
+                <p>{incident.references|s}</p>
+            </small>
+        {/incident.references}
     </div>
 {/body}

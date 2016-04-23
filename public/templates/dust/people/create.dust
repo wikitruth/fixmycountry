@@ -10,7 +10,7 @@
             <a href="{paths.people.index}">People</a>
             &nbsp;/&nbsp;
             {?person}
-                <a href="{paths.people.entry}?person={person._id}">{person.title}</a>
+                <a href="{paths.people.entry}?person={person._id}">{person.firstName} {person.lastName}</a>
                 &nbsp;/&nbsp;Edit
             {:else}
                 New Person
@@ -30,6 +30,10 @@
         <div class="form-group">
             <label for="inputContent">Summary</label>
             <textarea class="form-control" id="inputContent" name="content" rows="12">{person.content}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="inputReferences">References</label>
+            <textarea class="form-control" id="inputReferences" name="references" rows="2">{person.references}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
         {?person}

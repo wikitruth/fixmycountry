@@ -14,7 +14,12 @@
         </div>
     {:else}
     {/argument}
-    <div id="lipsum">
+    <div>
         <p>{argument.content|s}</p>
+        {?argument.references}
+            <br/>
+            References:
+            <p>{argument.references|s}</p>
+        {/argument.references}
     </div>
 {/body}

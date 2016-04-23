@@ -10,7 +10,14 @@
         <p class="lead">
             <a href="{paths.people.entry}?person={person._id}">{person.firstName} {person.lastName}</a></p>
     </div>
-    <div id="lipsum">
+    <div>
         <p>{person.content|s}</p>
+        {?person.references}
+            <br/>
+            <small class="text-muted">
+                <span class="text-uppercase">References</span>
+                <p>{person.references|s}</p>
+            </small>
+        {/person.references}
     </div>
 {/body}
