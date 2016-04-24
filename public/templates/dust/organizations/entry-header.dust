@@ -27,7 +27,6 @@
             <i class="fa fa-flash"></i> Overview</a>
     {/argument}
 
-
     {!<a class="btn btn-{@eq key=tab value="questions"}primary{:else}default{/eq}" href="/organizations/questions?id={item._id}">
         <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Questions</a>
     <a class="hidden-xs btn btn-{@eq key=tab value="related"}primary{:else}default{/eq}" href="/organizations/related?id={item._id}">

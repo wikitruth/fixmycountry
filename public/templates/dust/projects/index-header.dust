@@ -8,12 +8,26 @@
     <h1 class="page-header"><i class="fa fa-truck"></i> Projects</h1>
 {/project}
 <div class="btn-group" role="group" aria-label="" style="margin-bottom: 10px">
-    <a class="btn btn-{@eq key=tab value="top-items"}primary{:else}default{/eq}" href="{paths.projects.index}">
-        <i class="fa fa-truck"></i> All Projects<span class="hidden-xs hidden"> (122)</span>
-    </a>
-    {?project}
-        <a class="btn btn-{@eq key=tab value="arguments"}primary{:else}default{/eq}" href="{paths.projects.arguments.index}?project={project._id}">
-            <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Issues</a>
+    {^project}
+        <a class="btn btn-{@eq key=tab value="top-items"}primary{:else}default{/eq}" href="{paths.projects.index}">
+            <i class="fa fa-truck"></i> All Projects<span class="hidden-xs hidden"> (122)</span>
+        </a>
+        <a class="btn btn-{@eq key=tab value="politics"}primary{:else}default{/eq}" href="{paths.projects.index}">
+            <i class="fa fa-users"></i> Politics
+        </a>
+        <a class="btn btn-{@eq key=tab value="business"}primary{:else}default{/eq}" href="{paths.projects.index}">
+            <i class="fa fa-briefcase"></i> Business
+        </a>
+    {:else}
+        {^argument}
+            <a class="btn btn-{@eq key=tab value="overview"}primary{:else}default{/eq}" href="{paths.projects.entry}?project={project._id}">
+                <i class="fa fa-truck"></i> Overview</a>
+            <a class="btn btn-{@eq key=tab value="arguments"}primary{:else}default{/eq}" href="{paths.projects.arguments.index}?project={project._id}">
+                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Issues</a>
+        {:else}
+            <a class="btn btn-{@eq key=tab value="overview"}primary{:else}default{/eq}" href="{paths.projects.arguments.entry}?project={project._id}&amp;argument={argument._id}">
+                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Overview</a>
+        {/argument}
     {/project}
     {?isContributor}
         <a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

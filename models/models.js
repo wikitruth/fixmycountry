@@ -5,7 +5,7 @@ exports = module.exports = function(app, mongoose) {
   require('./schema/account/Note')(app, mongoose);
   require('./schema/account/Status')(app, mongoose);
   require('./schema/account/StatusLog')(app, mongoose);
-  require('./schema/account/Category')(app, mongoose);
+  require('./schema/account/AccountCategory')(app, mongoose);
 
   //then regular docs
   require('./schema/account/User')(app, mongoose);
@@ -15,7 +15,9 @@ exports = module.exports = function(app, mongoose) {
   require('./schema/account/LoginAttempt')(app, mongoose);
 
   // core
+  require('./schema/core/Topic')(app, mongoose);
   require('./schema/core/Argument')(app, mongoose);
+  require('./schema/core/Category')(app, mongoose);
 
   require('./schema/core/Page')(app, mongoose);
   require('./schema/core/Person')(app, mongoose);

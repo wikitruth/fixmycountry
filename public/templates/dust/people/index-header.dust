@@ -8,12 +8,35 @@
     <h1 class="page-header"><i class="fa fa-user"></i> People</h1>
 {/person}
 <div class="btn-group" role="group" aria-label="" style="margin-bottom: 10px">
-    <a class="btn btn-{@eq key=tab value="top-items"}primary{:else}default{/eq}" href="{paths.people.index}">
-        <i class="fa fa-user"></i> All People<span class="hidden-xs hidden"> (122)</span>
-    </a>
-    {?person}
-        <a class="btn btn-{@eq key=tab value="arguments"}primary{:else}default{/eq}" href="{paths.people.arguments.index}?person={person._id}">
-            <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Issues</a>
+    {^person}
+        <a class="btn btn-{@eq key=tab value="top-items"}primary{:else}default{/eq}" href="{paths.people.index}">
+            <i class="fa fa-user"></i> All People<span class="hidden-xs hidden"> (122)</span>
+        </a>
+        <a class="btn btn-{@eq key=tab value="politics"}primary{:else}default{/eq}" href="{paths.people.index}">
+            <i class="fa fa-users"></i> Politics
+        </a>
+        <a class="btn btn-{@eq key=tab value="business"}primary{:else}default{/eq}" href="{paths.people.index}">
+            <i class="fa fa-briefcase"></i> Business
+        </a>
+        <a class="hidden-xs btn btn-{@eq key=tab value="Media"}primary{:else}default{/eq}" href="{paths.people.index}">
+            <i class="fa fa-comments"></i> Media
+        </a>
+        <a class="hidden-xs btn btn-{@eq key=tab value="religion"}primary{:else}default{/eq}" href="{paths.people.index}">
+            <i class="fa fa-moon-o"></i> Religion
+        </a>
+        <a class="hidden-xs btn btn-{@eq key=tab value="entertainment"}primary{:else}default{/eq}" href="{paths.people.index}">
+            <i class="fa fa-sign-language"></i> Entertainment
+        </a>
+    {:else}
+        {^argument}
+            <a class="btn btn-{@eq key=tab value="overview"}primary{:else}default{/eq}" href="{paths.people.entry}?person={person._id}">
+                <i class="fa fa-user"></i> Overview</a>
+            <a class="btn btn-{@eq key=tab value="arguments"}primary{:else}default{/eq}" href="{paths.people.arguments.index}?person={person._id}">
+                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Issues</a>
+        {:else}
+            <a class="btn btn-{@eq key=tab value="overview"}primary{:else}default{/eq}" href="{paths.people.arguments.entry}?person={person._id}&amp;argument={argument._id}">
+                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Overview</a>
+        {/argument}
     {/person}
     {?isContributor}
         <a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

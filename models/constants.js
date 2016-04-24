@@ -16,5 +16,11 @@ module.exports = {
     },
     OCCUPATION_TYPES: {
 
+    },
+    CORE_GROUPS: { // Is this really needed?
+        people: 1,
+        incidents: 2,
+        projects: 3,
+        organization: 4
     }
 };
