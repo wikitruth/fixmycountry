@@ -15,9 +15,6 @@
         <a class="btn btn-{@eq key=tab value="politics"}primary{:else}default{/eq}" href="{paths.people.index}">
             <i class="fa fa-users"></i> Politics
         </a>
-        <a class="btn btn-{@eq key=tab value="business"}primary{:else}default{/eq}" href="{paths.people.index}">
-            <i class="fa fa-briefcase"></i> Business
-        </a>
         <a class="hidden-xs btn btn-{@eq key=tab value="Media"}primary{:else}default{/eq}" href="{paths.people.index}">
             <i class="fa fa-comments"></i> Media
         </a>
@@ -26,6 +23,9 @@
         </a>
         <a class="hidden-xs btn btn-{@eq key=tab value="entertainment"}primary{:else}default{/eq}" href="{paths.people.index}">
             <i class="fa fa-sign-language"></i> Entertainment
+        </a>
+        <a class="btn btn-{@eq key=tab value="business"}primary{:else}default{/eq}" href="{paths.people.index}">
+            <i class="fa fa-briefcase"></i> Business
         </a>
     {:else}
         {^argument}

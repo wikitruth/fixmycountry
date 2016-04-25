@@ -2,6 +2,16 @@
 
 
 module.exports = {
+    index: 'dust/index',
+    help: 'dust/help-us',
+    about: {
+        index: 'dust/about/page'
+    },
+    pages: {
+        index: 'dust/pages/index',
+        page: 'dust/pages/page',
+        create: 'dust/pages/create'
+    },
     people: {
         index: 'dust/people/index',
         create: 'dust/people/create',

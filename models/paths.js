@@ -2,6 +2,21 @@
 
 
 module.exports = {
+    about: '/about',
+    contact: '/contact',
+    signup: '/signup',
+    login: '/login',
+    logout: '/logout',
+    admin: '/admin',
+    account: {
+        index: '/account',
+        settings: '/account/settings'
+    },
+    pages: {
+        index: '/pages',
+        page: '/pages/page',
+        create: '/pages/create'
+    },
     people: {
         index: '/people',
         create: '/people/create',

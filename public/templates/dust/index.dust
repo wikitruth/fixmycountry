@@ -8,9 +8,9 @@
         <h1>Let's fix the Philippines</h1>
         <p class="lead">A system to promote transparency and accountability, help citizens identify, raise and fix issues in the Philippine society and government.</p>
     {#user.username}
-        <p><a class="btn btn-lg btn-success" href="/about" role="button">Learn more &raquo;</a></p>
+        <p><a class="btn btn-lg btn-success" href="{paths.about}" role="button">Learn more &raquo;</a></p>
     {:else}
-        <p><a class="btn btn-lg btn-success" href="/login" role="button">Login to contribute &raquo;</a></p>
+        <p><a class="btn btn-lg btn-success" href="{paths.login}" role="button">Login to contribute &raquo;</a></p>
     {/user.username}
     </div>
 

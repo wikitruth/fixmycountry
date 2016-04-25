@@ -1,8 +1,10 @@
 'use strict';
 
-var flowUtils   = require('../../utils/flowUtils'),
-    mongoose    = require('mongoose'),
+var mongoose    = require('mongoose'),
     async       = require('async'),
+    flowUtils   = require('../../utils/flowUtils'),
+    paths       = require('../../models/paths'),
+    templates   = require('../../models/templates'),
     db          = require('../../app').db.models;
 
 module.exports = function (router) {
@@ -68,10 +70,10 @@ module.exports = function (router) {
                     });
                 }
             }, function (err, results) {
-                res.render('dust/pages/index', model);
+                res.render(templates.pages.index, model);
             });
         } else {
-            res.render('dust/pages/index', model);
+            res.render(templates.pages.index, model);
         }
     });
 
@@ -96,7 +98,7 @@ module.exports = function (router) {
                 });
             }
         }, function (err, results) {
-            res.render('dust/pages/page', model);
+            res.render(templates.pages.page, model);
         });
 
     });
@@ -127,10 +129,10 @@ module.exports = function (router) {
                     }
                 }
             }, function (err, results) {
-                res.render('dust/pages/create', model);
+                res.render(templates.pages.create, model);
             });
         } else {
-            res.render('dust/pages/create', model);
+            res.render(templates.pages.create, model);
         }
     });
 
@@ -160,9 +162,9 @@ module.exports = function (router) {
                     throw err;
                 }
                 if(result) {
-                    res.redirect('/pages/page?id=' + req.query.id + (req.query.parent ? '&amp;parent=' + req.query.parent : ''));
+                    res.redirect(paths.pages.page + '?id=' + req.query.id + (req.query.parent ? '&amp;parent=' + req.query.parent : ''));
                 } else {
-                    res.redirect('/pages');
+                    res.redirect(paths.pages.index);
                 }
             });
         });

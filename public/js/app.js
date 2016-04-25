@@ -1,7 +1,6 @@
 'use strict';
 
 require(['jquery', 'bootstrap'], function () {
-
     var app = {
         initialize: function () {
             // Your code here
@@ -9,5 +8,4 @@ require(['jquery', 'bootstrap'], function () {
     };
 
     app.initialize();
-
 });

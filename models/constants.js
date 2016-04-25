@@ -21,6 +21,7 @@ module.exports = {
         people: 1,
         incidents: 2,
         projects: 3,
-        organization: 4
+        organization: 4,
+        government: 5
     }
 };

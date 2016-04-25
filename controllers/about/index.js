@@ -1,6 +1,7 @@
 'use strict';
 
-var db = require('../../app').db.models;
+var templates   = require('../../models/templates'),
+    db          = require('../../app').db.models;
 
 module.exports = function (router) {
 
@@ -8,7 +9,7 @@ module.exports = function (router) {
         var model = {};
         db.Page.findOne({id: req.params.id}, function(err, result) {
             model.page = result;
-            res.render('dust/about/page', model);
+            res.render(templates.about.index, model);
         });
     });
 };
