@@ -27,9 +27,18 @@
         <ul class="list-group top-list-items">
             <li class="list-group-item highlight"><i class="fa fa-users text-success"></i> Top Branches</li>
             {#branches}
-                <li class="list-group-item"><i class="fa fa-users text-success"></i> <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={_id}">{title}</a> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
+                <li class="list-group-item"><i class="fa fa-users text-success"></i> <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={_id}">{title}</a> <span class="pull-right text-muted"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
             {/branches}
         </ul>
         <div class="top-list-items-more"><a href="{paths.organizations.branch.index}?organization={organization._id}" role="button">more &raquo;</a></div>
     {/branches}
+    {?arguments}
+        <ul class="list-group top-list-items">
+            <li class="list-group-item highlight"><span class="glyphicon glyphicon-flash text-success" aria-hidden="true"></span> Issues</li>
+            {#arguments}
+                <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> <a href="{paths.organizations.branch.arguments.entry}?organization={organization._id}&amp;branch={branch._id}&amp;argument={_id}">{title}</a> <span class="pull-right text-muted"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
+            {/arguments}
+        </ul>
+        <div class="top-list-items-more"><a href="{paths.organizations.branch.arguments.index}?organization={organization._id}&amp;branch={branch._id}" role="button">more &raquo;</a></div>
+    {/arguments}
 {/body}

@@ -12,9 +12,9 @@
     {/pageTitle}
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="/css/app.min.css" />
+    <link rel="stylesheet" href="/css/app.min.css?#{cacheBreaker}" />
     {!<link rel="stylesheet" href="/css/non-responsive.css" />!}
-    <link rel="stylesheet" href="/layouts/core.min.css" />
+    <link rel="stylesheet" href="/layouts/core.min.css?#{cacheBreaker}" />
     <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -48,18 +48,20 @@
     </div> <!-- /container -->!}
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="/components/bootstrap/dist/js/bootstrap.min.js"></script>
+{!<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/components/bootstrap/dist/js/bootstrap.min.js"></script>!}
 {!<script data-main="/js/app" src="/components/requirejs/require.js"></script>!}
 {!<script src="/components/js/bootstrap.min.js"></script>!}
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<script src="/layouts/core.min.js?#{cacheBreaker}"></script>
+<script src="/layouts/dev.min.js?#{cacheBreaker}"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', 'UA-66543450-2', 'auto');
-        ga('send', 'pageview');
-    </script>
+    ga('create', 'UA-66543450-2', 'auto');
+    ga('send', 'pageview');
+</script>
 </body>
 </html>

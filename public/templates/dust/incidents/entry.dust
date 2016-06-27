@@ -20,4 +20,13 @@
             </small>
         {/incident.references}
     </div>
+    {?arguments}
+        <ul class="list-group top-list-items">
+            <li class="list-group-item highlight"><span class="glyphicon glyphicon-flash text-success" aria-hidden="true"></span> Issues</li>
+            {#arguments}
+                <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> <a href="{paths.incidents.arguments.entry}?incident={incident._id}&amp;argument={_id}">{title}</a> <span class="pull-right text-muted"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
+            {/arguments}
+        </ul>
+        <div class="top-list-items-more"><a href="{paths.incidents.arguments.index}?incident={incident._id}" role="button">more &raquo;</a></div>
+    {/arguments}
 {/body}

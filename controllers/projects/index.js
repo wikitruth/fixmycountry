@@ -5,16 +5,13 @@ var mongoose    = require('mongoose'),
     flowUtils   = require('../../utils/flowUtils'),
     paths       = require('../../models/paths'),
     templates   = require('../../models/templates'),
+    constants   = require('../../models/constants'),
     db          = require('../../app').db.models;
-
-function createModel() {
-    return {};
-}
 
 module.exports = function (router) {
 
     router.get('/', function (req, res) {
-        var model = createModel();
+        var model = {};
         db.Project.find({}).limit(100).sort({ title: 1 }).exec(function(err, results) {
             results.forEach(function(result) {
                 result.comments = utils.numberWithCommas(utils.randomInt(1,100000));
@@ -26,14 +23,22 @@ module.exports = function (router) {
 
     // item details
     router.get('/entry', function (req, res) {
-        var model = createModel();
+        var model = {};
         flowUtils.setProjectModel(req, model, function (err) {
-            res.render(templates.projects.entry, model);
+            // Top Arguments
+            var query = {ownerId: req.query.project, ownerType: constants.OBJECT_TYPES.project};
+            db.Argument.find(query).limit(15).sort({ title: 1 }).exec(function(err, results) {
+                results.forEach(function(result) {
+                    result.comments = utils.numberWithCommas(utils.randomInt(1,100000));
+                });
+                model.arguments = results;
+                res.render(templates.projects.entry, model);
+            });
         });
     });
 
     router.get('/create', function (req, res) {
-        var model = createModel();
+        var model = {};
         flowUtils.setProjectModel({query:{project:req.query.id}}, model, function (err) {
             res.render(templates.projects.create, model);
         });

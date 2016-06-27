@@ -35,6 +35,9 @@ module.exports = function uglify(grunt) {
                     'public/components/moment/moment.js',
                     'public/layouts/core.js'
                 ],
+                /*'public/layouts/dev.min.js': [
+                    'public/components/holderjs/holder.js'
+                ],*/
                 'public/layouts/ie-sucks.min.js': [
                     'public/components/html5shiv/dist/html5shiv.js',
                     'public/components/respond/src/respond.js',

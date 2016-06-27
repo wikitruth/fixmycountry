@@ -19,7 +19,7 @@
             <i class="fa fa-comments"></i> Media
         </a>
         <a class="hidden-xs btn btn-{@eq key=tab value="religion"}primary{:else}default{/eq}" href="{paths.people.index}">
-            <i class="fa fa-moon-o"></i> Religion
+            <i class="fa fa-book"></i> Religion
         </a>
         <a class="hidden-xs btn btn-{@eq key=tab value="entertainment"}primary{:else}default{/eq}" href="{paths.people.index}">
             <i class="fa fa-sign-language"></i> Entertainment

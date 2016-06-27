@@ -13,7 +13,7 @@
     <ul class="list-group">
         <li class="list-group-item highlight"><span class="glyphicon glyphicon-flash text-success" aria-hidden="true"></span> Issues</li>
         {#arguments}
-            <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> <a href="{paths.people.arguments.entry}?person={person._id}&amp;argument={_id}">{title}</a> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
+            <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> <a href="{paths.people.arguments.entry}?person={person._id}&amp;argument={_id}">{title}</a> <span class="pull-right text-muted"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
         {/arguments}
     </ul>
 {/body}

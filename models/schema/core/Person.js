@@ -4,6 +4,7 @@ exports = module.exports = function(app, mongoose) {
   var schema = new mongoose.Schema({
     firstName: { type: String, default: '' },
     lastName: { type: String, default: '' },
+    title: { type: String, default: '' },
     content: { type: String, default: '' },
     references: { type: String, default: '' },
     createDate: { type: Date, default: Date.now },

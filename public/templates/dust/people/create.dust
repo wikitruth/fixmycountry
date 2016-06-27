@@ -28,6 +28,10 @@
             <input type="text" name="lastName" id="inputLastName" value="{person.lastName}" class="form-control"/>
         </div>
         <div class="form-group">
+            <label for="inputTitle">Title</label>
+            <input type="text" name="title" id="inputTitle" value="{person.title}" class="form-control"/>
+        </div>
+        <div class="form-group">
             <label for="inputContent">Summary</label>
             <textarea class="form-control" id="inputContent" name="content" rows="12">{person.content}</textarea>
         </div>

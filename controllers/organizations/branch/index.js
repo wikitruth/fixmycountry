@@ -6,16 +6,13 @@ var mongoose    = require('mongoose'),
     flowUtils   = require('../../../utils/flowUtils'),
     paths       = require('../../../models/paths'),
     templates   = require('../../../models/templates'),
+    constants   = require('../../../models/constants'),
     db          = require('../../../app').db.models;
-
-function createModel() {
-    return {};
-}
 
 module.exports = function (router) {
 
     router.get('/', function (req, res) {
-        var model = createModel();
+        var model = {};
         if(req.query.organization) {
             flowUtils.setOrganizationModels(req, model, function () {
                 flowUtils.setBranchModels(req, model, function() {
@@ -48,7 +45,7 @@ module.exports = function (router) {
     });
 
     router.get('/entry', function (req, res) {
-        var model = createModel();
+        var model = {};
         flowUtils.setOrganizationModels(req, model, function () {
             flowUtils.setBranchModels(req, model, function () {
                 // display top sub-branches
@@ -57,14 +54,23 @@ module.exports = function (router) {
                         result.comments = utils.numberWithCommas(utils.randomInt(1,100000));
                     });
                     model.branches = results;
-                    res.render(templates.organizations.branch.entry, model);
+
+                    // Top Arguments
+                    var query = {ownerId: req.query.branch, ownerType: constants.OBJECT_TYPES.branch};
+                    db.Argument.find(query).limit(15).sort({ title: 1 }).exec(function(err, results) {
+                        results.forEach(function(result) {
+                            result.comments = utils.numberWithCommas(utils.randomInt(1,100000));
+                        });
+                        model.arguments = results;
+                        res.render(templates.organizations.branch.entry, model);
+                    });
                 });
             });
         });
     });
 
     router.get('/create', function (req, res) {
-        var model = createModel();
+        var model = {};
         flowUtils.setOrganizationModels(req, model, function () {
             async.series({
                 branch: function(callback){

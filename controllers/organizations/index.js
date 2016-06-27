@@ -6,16 +6,13 @@ var mongoose    = require('mongoose'),
     flowUtils   = require('../../utils/flowUtils'),
     paths       = require('../../models/paths'),
     templates   = require('../../models/templates'),
+    constants   = require('../../models/constants'),
     db          = require('../../app').db.models;
-
-function createModel() {
-    return {};
-}
 
 module.exports = function (router) {
 
     router.get('/', function (req, res) {
-        var model = createModel();
+        var model = {};
         async.parallel({
             organization: function(callback){
                 flowUtils.setOrganizationModels(req, model, callback);
@@ -37,7 +34,7 @@ module.exports = function (router) {
 
     // item details
     router.get('/entry', function (req, res) {
-        var model = createModel();
+        var model = {};
         async.parallel({
             organization: function(callback){
                 flowUtils.setOrganizationModels(req, model, callback);
@@ -61,6 +58,17 @@ module.exports = function (router) {
                     model.branches = results;
                     callback();
                 });
+            },
+            arguments: function(callback) {
+                // Top Arguments
+                var query = {ownerId: req.query.organization, ownerType: constants.OBJECT_TYPES.organization};
+                db.Argument.find(query).limit(15).sort({ title: 1 }).exec(function(err, results) {
+                    results.forEach(function(result) {
+                        result.comments = utils.numberWithCommas(utils.randomInt(1,100000));
+                    });
+                    model.arguments = results;
+                    callback();
+                });
             }
         }, function (err, results) {
             res.render(templates.organizations.entry, model);
@@ -68,7 +76,7 @@ module.exports = function (router) {
     });
 
     router.get('/create', function (req, res) {
-        var model = createModel();
+        var model = {};
         async.series({
             organization: function(callback){
                 if(req.query.id) {

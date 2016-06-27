@@ -13,7 +13,7 @@
     <ul class="list-group">
         <li class="list-group-item highlight"><i class="fa fa-users text-success" aria-hidden="true"></i> Branches</li>
         {#branches}
-            <li class="list-group-item"><i class="fa fa-users text-success" aria-hidden="true"></i> <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={_id}">{title}</a> <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
+            <li class="list-group-item"><i class="fa fa-users text-success" aria-hidden="true"></i> <a href="{paths.organizations.branch.entry}?organization={organization._id}&amp;branch={_id}">{title}</a> <span class="pull-right text-muted"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
         {/branches}
     </ul>
 {/body}

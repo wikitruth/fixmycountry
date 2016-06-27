@@ -15,7 +15,7 @@
         {#arguments}
             <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span>&nbsp;
                 <a href="{paths.organizations.branch.arguments.entry}?organization={organization._id}&amp;branch={branch._id}&amp;argument={_id}">{title}</a>&nbsp;
-                <span class="pull-right"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
+                <span class="pull-right text-muted"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
         {/arguments}
     </ul>
 {/body}

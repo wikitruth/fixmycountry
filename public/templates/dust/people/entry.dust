@@ -1,15 +1,18 @@
 {>"dust/layouts/master" /}
 
 {<title}
-    {person.title} - {titleSlogan}
+    {person.firstName} {person.lastName} - {titleSlogan}
 {/title}
 
 {<body}
     {>"dust/people/index-header" tab="overview" /}
     <div>
-        <p class="lead">
-            <a href="{paths.people.entry}?person={person._id}">{person.firstName} {person.lastName}</a></p>
+        <h4 style="margin-bottom: 5px">
+            <a href="{paths.people.entry}?person={person._id}">{person.firstName} {person.lastName}</a>
+        </h4>
+        {?person.title}<span class="text-muted">{person.title}</span>{/person.title}
     </div>
+    <br/>
     <div>
         <p>{person.content|s}</p>
         {?person.references}
@@ -20,4 +23,13 @@
             </small>
         {/person.references}
     </div>
+    {?arguments}
+        <ul class="list-group top-list-items">
+            <li class="list-group-item highlight"><span class="glyphicon glyphicon-flash text-success" aria-hidden="true"></span> Issues</li>
+            {#arguments}
+                <li class="list-group-item"><span class="glyphicon glyphicon-file text-success" aria-hidden="true"></span> <a href="{paths.people.arguments.entry}?person={person._id}&amp;argument={_id}">{title}</a> <span class="pull-right text-muted"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {comments}</span></li>
+            {/arguments}
+        </ul>
+        <div class="top-list-items-more"><a href="{paths.people.arguments.index}?person={person._id}" role="button">more &raquo;</a></div>
+    {/arguments}
 {/body}

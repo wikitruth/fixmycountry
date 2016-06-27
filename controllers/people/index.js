@@ -5,16 +5,13 @@ var mongoose    = require('mongoose'),
     flowUtils   = require('../../utils/flowUtils'),
     paths       = require('../../models/paths'),
     templates   = require('../../models/templates'),
+    constants   = require('../../models/constants'),
     db          = require('../../app').db.models;
-
-function createModel() {
-    return {};
-}
 
 module.exports = function (router) {
 
     router.get('/', function (req, res) {
-        var model = createModel();
+        var model = {};
         db.Person.find({}).limit(100).sort({ lastName: 1 }).exec(function(err, results) {
             results.forEach(function(result) {
                 result.comments = utils.numberWithCommas(utils.randomInt(1,100000));
@@ -26,14 +23,22 @@ module.exports = function (router) {
 
     // item details
     router.get('/entry', function (req, res) {
-        var model = createModel();
+        var model = {};
         flowUtils.setPersonModel(req, model, function (err) {
-            res.render(templates.people.entry, model);
+            // Top Arguments
+            var query = {ownerId: req.query.person, ownerType: constants.OBJECT_TYPES.person};
+            db.Argument.find(query).limit(15).sort({ title: 1 }).exec(function(err, results) {
+                results.forEach(function(result) {
+                    result.comments = utils.numberWithCommas(utils.randomInt(1,100000));
+                });
+                model.arguments = results;
+                res.render(templates.people.entry, model);
+            });
         });
     });
 
     router.get('/create', function (req, res) {
-        var model = createModel();
+        var model = {};
         flowUtils.setPersonModel({query:{person:req.query.id}}, model, function (err) {
             res.render(templates.people.create, model);
         });
@@ -46,6 +51,7 @@ module.exports = function (router) {
         db.Person.findOne(query, function(err, result) {
             var entity = result ? result : {};
             entity.content = req.body.content;
+            entity.title = req.body.title;
             entity.firstName = req.body.firstName;
             entity.lastName = req.body.lastName;
             entity.references = req.body.references;
@@ -61,10 +67,8 @@ module.exports = function (router) {
                 }
                 if(result) {
                     res.redirect(paths.people.entry + '?person=' + req.query.id);
-                } else if(req.query.person) {
-                    res.redirect(paths.people.index + '?person=' + req.query.person);
                 } else {
-                    res.redirect(paths.people.index);
+                    res.redirect(paths.people.index + (req.query.person ? '?person=' + req.query.person : ''));
                 }
             });
         });
