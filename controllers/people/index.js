@@ -12,6 +12,7 @@ module.exports = function (router) {
 
     router.get('/', function (req, res) {
         var model = {};
+        model.listView = true;
         db.Person.find({}).limit(100).sort({ lastName: 1 }).exec(function(err, results) {
             results.forEach(function(result) {
                 result.comments = utils.numberWithCommas(utils.randomInt(1,100000));

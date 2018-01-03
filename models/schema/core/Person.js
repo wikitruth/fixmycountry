@@ -13,6 +13,9 @@ exports = module.exports = function(app, mongoose) {
     editUserId: { type: mongoose.Schema.ObjectId, ref: 'User' },
     occupationType: { type: Number, default: -1 }
   });
+  schema.methods.getFullName = function() {
+    return this.firstName + ' ' + this.lastName;
+  };
   schema.plugin(require('../plugins/pagedFind'));
   schema.index({ firstName: 1 });
   schema.index({ lastName: 1 });

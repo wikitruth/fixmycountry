@@ -12,13 +12,6 @@
     </div>
     <div>
         <p>{incident.content|s}</p>
-        {?incident.references}
-            <br/>
-            <small class="text-muted">
-                <span class="text-uppercase">References</span>
-                <p>{incident.references|s}</p>
-            </small>
-        {/incident.references}
     </div>
     {?arguments}
         <ul class="list-group top-list-items">
@@ -29,4 +22,13 @@
         </ul>
         <div class="top-list-items-more"><a href="{paths.incidents.arguments.index}?incident={incident._id}" role="button">more &raquo;</a></div>
     {/arguments}
+    {?incident.references}
+        <small class="text-muted">
+            <span class="text-uppercase">References</span>
+            <p>{incident.references|s}</p>
+        </small>
+    {/incident.references}
+    <small class="text-muted">
+        Last modified by {incident.editUsername} on {incident.editDate}.
+    </small>
 {/body}

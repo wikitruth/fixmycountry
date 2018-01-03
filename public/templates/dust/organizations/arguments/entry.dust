@@ -16,10 +16,14 @@
     {/argument}
     <div>
         <p>{argument.content|s}</p>
-        {?argument.references}
-            <br/>
-            References:
-            <p>{argument.references|s}</p>
-        {/argument.references}
     </div>
+    {?argument.references}
+        <small class="text-muted">
+            <span class="text-uppercase">References</span>
+            <p>{argument.references|s}</p>
+        </small>
+    {/argument.references}
+    <small class="text-muted">
+        Last modified by {argument.editUsername} on {argument.editDate}.
+    </small>
 {/body}

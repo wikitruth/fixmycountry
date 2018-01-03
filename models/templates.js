@@ -4,6 +4,7 @@
 module.exports = {
     index: 'dust/index',
     help: 'dust/help-us',
+    details: 'dust/details',
     about: {
         index: 'dust/about/page'
     },

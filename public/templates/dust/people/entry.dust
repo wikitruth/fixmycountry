@@ -15,13 +15,6 @@
     <br/>
     <div>
         <p>{person.content|s}</p>
-        {?person.references}
-            <br/>
-            <small class="text-muted">
-                <span class="text-uppercase">References</span>
-                <p>{person.references|s}</p>
-            </small>
-        {/person.references}
     </div>
     {?arguments}
         <ul class="list-group top-list-items">
@@ -32,4 +25,13 @@
         </ul>
         <div class="top-list-items-more"><a href="{paths.people.arguments.index}?person={person._id}" role="button">more &raquo;</a></div>
     {/arguments}
+    {?person.references}
+        <small class="text-muted">
+            <span class="text-uppercase">References</span>
+            <p>{person.references|s}</p>
+        </small>
+    {/person.references}
+    <small class="text-muted">
+        Last modified by {person.editUsername} on {person.editDate}.
+    </small>
 {/body}

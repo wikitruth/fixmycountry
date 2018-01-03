@@ -1,0 +1,37 @@
+{>"dust/layouts/master" /}
+
+{<title}
+    {entity.title} - {titleSlogan}
+{/title}
+
+{<body}
+    {?entity.id}
+        <h2 class="page-header">
+        <span class="text-muted">
+            <i class="fa fa-file-o" aria-hidden="true"></i> {entity.type}&nbsp;/&nbsp;
+        </span>
+            {entity.title}
+        </h2>
+        <div>
+            <small>
+                <span class="text-uppercase1 text-success">Created by</span>
+            </small>
+            <p>{entity.createUsername}</p>
+            <small>
+                <span class="text-uppercase1 text-success">Created on</span>
+            </small>
+            <p>{entity.createDate}</p>
+            <br/>
+            <small>
+                <span class="text-uppercase1 text-warning">Last modified by</span>
+            </small>
+            <p>{entity.editUsername}</p>
+            <small>
+                <span class="text-uppercase1 text-warning">Last modified on</span>
+            </small>
+            <p>{entity.editDate}</p>
+        </div>
+    {:else}
+        <h2><i class="fa fa-info-circle text-danger" aria-hidden="true"></i> Entity not found</h2>
+    {/entity.id}
+{/body}

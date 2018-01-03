@@ -12,16 +12,7 @@
             <a href="{paths.organizations.entry}?organization={organization._id}">{organization.title}</a></p>
         {!<span style="color: #f0ad4e" title="Pending peer review and acceptance (verdict)"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span>!}
     </div>
-    <div>
-        <p>{organization.content|s}</p>
-        {?organization.references}
-            <br/>
-            <small class="text-muted">
-                <span class="text-uppercase">References</span>
-                <p>{organization.references|s}</p>
-            </small>
-        {/organization.references}
-    </div>
+    <p>{organization.content|s}</p>
     {?organizations}
         <ul class="list-group top-list-items">
             <li class="list-group-item highlight"><i class="fa fa-bank text-success"></i> Top Organizations</li>
@@ -49,4 +40,13 @@
         </ul>
         <div class="top-list-items-more"><a href="{paths.organizations.arguments.index}?organization={organization._id}" role="button">more &raquo;</a></div>
     {/arguments}
+    {?organization.references}
+        <small class="text-muted">
+            <span class="text-uppercase">References</span>
+            <p>{organization.references|s}</p>
+        </small>
+    {/organization.references}
+    <small class="text-muted">
+        Last modified by {organization.editUsername} on {organization.editDate}.
+    </small>
 {/body}

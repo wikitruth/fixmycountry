@@ -1,0 +1,57 @@
+{>"dust/layouts/master" /}
+
+{<body}
+    <!--{@pre type="content" key="greeting"/}-->
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1>Let's fix the Philippines</h1>
+        <p class="lead">A system to promote transparency and accountability, help citizens identify, raise and fix issues in the Philippine society and government.</p>
+    {#user.username}
+        <p><a class="btn btn-lg btn-success" href="{paths.about}" role="button">Learn more &raquo;</a></p>
+    {:else}
+        <p><a class="btn btn-lg btn-success" href="{paths.login}" role="button">Login to contribute &raquo;</a></p>
+    {/user.username}
+    </div>
+
+
+    {!<div class="article-heading js-article-heading js-geopattern" style="background-image: url();">
+        <div class="wrap">
+            <div class="icon-container">
+                <span class="mega-octicon octicon-markdown"></span>
+            </div>
+            <h1>Mastering Markdown</h1>
+      <span class="article-read-time article-meta">
+        <span class="octicon octicon-clock"></span> 3 minute read
+      </span>
+            <a class="article-pdf article-meta" href="/pdfs/markdown-cheatsheet-online.pdf" onclick="_gaq.push(['_trackEvent', 'PDF Download', 'Click', 'markdown-cheatsheet-online.pdf']);">
+                <span class="octicon octicon-cloud-download"></span> Download PDF version
+            </a>
+        </div>
+    </div>!}
+
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <h2><i class="fa fa-user"></i> People</h2>
+            <p>Government officials, politicians, media personnel, businessmen, influential leaders and every key people that shape the society.</p>
+            <p><a class="btn btn-default btn-block" href="{paths.people.index}" role="button">Explore &raquo;</a></p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <h2><i class="fa fa-bolt"></i> Incidents</h2>
+            <p>Natural calamities, disasters, accidents, rallies, good cause, immoral and malicious acts that impact the society and people.</p>
+            <p><a class="btn btn-default btn-block" href="{paths.incidents.index}" role="button">Explore &raquo;</a></p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <h2><i class="fa fa-truck"></i> Projects</h2>
+            <p>Major projects done by the government or private organizations as long as it impacts the people negatively or positively.</p>
+            <p><a class="btn btn-default btn-block" href="{paths.projects.index}" role="button">Explore &raquo;</a></p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <h2><i class="fa fa-bank"></i> Organizations</h2>
+            <p>The Government of the Philippines, public or private businesses, charities, nonprofit, religions or any movement or group that impact us.</p>
+            <p><a class="btn btn-default btn-block" href="{paths.organizations.index}" role="button">Explore &raquo;</a></p>
+        </div>
+    </div>
+
+{/body}

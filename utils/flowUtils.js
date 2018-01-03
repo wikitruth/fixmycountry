@@ -19,11 +19,14 @@ function appendOwnerFlag(req, item, model) {
 function setPersonModel(req, model, callback) {
     if(req.query.person) {
         db.Person.findOne({_id: req.query.person}, function (err, result) {
-            model.person = result;
             if(isOwner(req, result, model)) {
                 model.isPersonOwner = true;
             }
-            callback(err);
+            db.User.findOne({_id: result.editUserId}, function (err, user) {
+                result.editUsername = user.username;
+                model.person = result;
+                callback(err);
+            });
         });
     } else {
         callback();
@@ -33,11 +36,14 @@ function setPersonModel(req, model, callback) {
 function setIncidentModel(req, model, callback) {
     if(req.query.incident) {
         db.Incident.findOne({_id: req.query.incident}, function (err, result) {
-            model.incident = result;
             if(isOwner(req, result, model)) {
                 model.isIncidentOwner = true;
             }
-            callback(err);
+            db.User.findOne({_id: result.editUserId}, function (err, user) {
+                result.editUsername = user.username;
+                model.incident = result;
+                callback(err);
+            });
         });
     } else {
         callback();
@@ -47,11 +53,14 @@ function setIncidentModel(req, model, callback) {
 function setProjectModel(req, model, callback) {
     if(req.query.project) {
         db.Project.findOne({_id: req.query.project}, function (err, result) {
-            model.project = result;
             if(isOwner(req, result, model)) {
                 model.isProjectOwner = true;
             }
-            callback(err);
+            db.User.findOne({_id: result.editUserId}, function (err, user) {
+                result.editUsername = user.username;
+                model.project = result;
+                callback(err);
+            });
         });
     } else {
         callback();
@@ -61,11 +70,14 @@ function setProjectModel(req, model, callback) {
 function setOrganizationModel(req, model, callback) {
     if(req.query.organization) {
         db.Organization.findOne({_id: req.query.organization}, function (err, result) {
-            model.organization = result;
             if(isOwner(req, result, model)) {
                 model.isOrganizationOwner = true;
             }
-            callback(err);
+            db.User.findOne({_id: result.editUserId}, function (err, user) {
+                result.editUsername = user.username;
+                model.organization = result;
+                callback(err);
+            });
         });
     } else {
         callback();
@@ -101,11 +113,14 @@ function setOrganizationModels(req, model, callback) {
 function setArgumentModel(req, model, callback) {
     if(req.query.argument) {
         db.Argument.findOne({_id: req.query.argument}, function (err, result) {
-            model.argument = result;
             if(isOwner(req, result, model)) {
                 model.isArgumentOwner = true;
             }
-            callback();
+            db.User.findOne({_id: result.editUserId}, function (err, user) {
+                result.editUsername = user.username;
+                model.argument = result;
+                callback(err);
+            });
         });
     } else {
         callback();

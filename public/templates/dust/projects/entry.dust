@@ -12,13 +12,6 @@
     </div>
     <div>
         <p>{project.content|s}</p>
-        {?project.references}
-            <br/>
-            <small class="text-muted">
-                <span class="text-uppercase">References</span>
-                <p>{project.references|s}</p>
-            </small>
-        {/project.references}
     </div>
     {?arguments}
         <ul class="list-group top-list-items">
@@ -29,4 +22,13 @@
         </ul>
         <div class="top-list-items-more"><a href="{paths.projects.arguments.index}?project={project._id}" role="button">more &raquo;</a></div>
     {/arguments}
+    {?project.references}
+        <small class="text-muted">
+            <span class="text-uppercase">References</span>
+            <p>{project.references|s}</p>
+        </small>
+    {/project.references}
+    <small class="text-muted">
+        Last modified by {project.editUsername} on {project.editDate}.
+    </small>
 {/body}

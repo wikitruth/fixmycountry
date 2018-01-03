@@ -23,5 +23,12 @@ module.exports = {
         projects: 3,
         organization: 4,
         government: 5
+    },
+    OBJECT_TYPE_NAMES: {
+        organization: 'Organization',
+        branch: 'Branch',
+        person: 'Person',
+        incident: 'Incident',
+        project: 'Project'
     }
 };

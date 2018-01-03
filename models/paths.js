@@ -8,6 +8,7 @@ module.exports = {
     login: '/login',
     logout: '/logout',
     admin: '/admin',
+    details: '/details',
     account: {
         index: '/account',
         settings: '/account/settings'

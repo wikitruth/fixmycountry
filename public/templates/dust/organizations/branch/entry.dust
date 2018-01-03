@@ -13,16 +13,7 @@
         </div>
     {:else}
     {/branch}
-    <div>
-        <p>{branch.content|s}</p>
-        {?branch.references}
-            <br/>
-            <small class="text-muted">
-                <span class="text-uppercase">References</span>
-                <p>{branch.references|s}</p>
-            </small>
-        {/branch.references}
-    </div>
+    <p>{branch.content|s}</p>
     {?branches}
         <ul class="list-group top-list-items">
             <li class="list-group-item highlight"><i class="fa fa-users text-success"></i> Top Branches</li>
@@ -41,4 +32,13 @@
         </ul>
         <div class="top-list-items-more"><a href="{paths.organizations.branch.arguments.index}?organization={organization._id}&amp;branch={branch._id}" role="button">more &raquo;</a></div>
     {/arguments}
+    {?branch.references}
+        <small class="text-muted">
+            <span class="text-uppercase">References</span>
+            <p>{branch.references|s}</p>
+        </small>
+    {/branch.references}
+    <small class="text-muted">
+        Last modified by {branch.editUsername} on {branch.editDate}.
+    </small>
 {/body}
