@@ -1,5 +1,9 @@
 # fixthephilippines.org
 
+```bash
+# This project is now merged to the main Wikitruth Project code. See https://github.com/wikitruth/wikitruth
+```
+
 **Objectives**
 * Create a system to help citizens identify, raise and fix issues in their society and the government.
 * Isiwalat ang mga tiwaling opisyales ng pamahalaan at mga salot sa ating Lipunan.
